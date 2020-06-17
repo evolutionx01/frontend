@@ -1,0 +1,37 @@
+header {
+    color: white;
+    .top_header {
+        background-color: #122740;
+        padding: 0.25rem 0;
+        span {
+            padding-right: 1rem;
+        }
+    }
+    .menu_banner {
+        background-image: url("../../../assets/header_banner.png");
+        padding-bottom: 1.5rem;
+        .logo_container {
+            padding: 0.5rem 0;
+            img {
+                width: 7rem;
+                margin: 0 auto;
+                text-align: center;
+                display: block;
+            }
+        }
+        .app_menu {
+            position: relative;
+            .menu_container {
+                z-index: 1;
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                max-width: 1170px;
+                .bg-blue {
+                    background-color: #122740;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,177 @@
+<section>
+    <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[0]" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+                <h3>Welcome to AK Universal Concept</h3>
+                <p>Unity is Our Aim</p>
+                <p>Benevolence is Our Business</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random second slide">
+            </div>
+            <div class="carousel-caption">
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[2]" alt="Random third slide">
+            </div>
+            <div class="carousel-caption">
+                <h3>Third slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</section>
+<section class="foundation">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col-lg-4 col-md-4 col-xs-12">
+                <div class="card-header">
+                    <h3>COMMITMENT</h3>
+                </div>
+
+                <div class="card-body">
+                    <p>
+                        Individual commitment to a group effort - that is what makes a team work, a company work, a
+                        society work. A civilization work.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card col-lg-4 col-md-4 col-xs-12">
+                <div class="card-header">
+                    <h3>TEAM WORK</h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Teamwork means that we share a common goal. Regardless of our differences, we strike shoulder to
+                        shoulder, confident in one another’s faith, trust and commitment. In the end, teamwork can be
+                        summed up in five short words --‘We believe in each other’.
+
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="card col-lg-4 col-md-4 col-xs-12">
+                <div class="card-header">
+                    <h3>COMMUNICATION</h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                        We recognize our leaders as the backbone of our organization because in business today success
+                        depends on giving customers what they want which takes us to the very basis of good
+                        communication.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="what-we-do">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h2>What We do</h2>
+        </div>
+        <div class="row our_concept">
+            <div class="col mx-1 col-xs-12">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="../../../assets/logo_HC.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col mx-1 col-xs-12">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="../../../assets/logo_HC.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col mx-1 col-xs-12">
+                <div class="card ">
+                    <div class="card-body">
+                        <img src="../../../assets/logo_HC.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col mx-1 col-xs-12">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="../../../assets/logo_HC.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col mx-1 col-xs-12">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="../../../assets/logo_HC.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-us">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col no-gutter">
+                <div class="youtube_video">
+                    <figure>
+                        <img class="img-fluid" src="../../../assets/aboutus.png" />
+                        <span (click)="open(content)" class="icon fa fa-play"></span>
+                    </figure>
+                </div>
+            </div>
+            <div class="col foundation_title">
+                <div class="sec-title">
+                    <h1>Welcome to our AKUC Foundation Since 2013</h1>
+                </div>
+                <div class="desc">
+                    <p>AK Universal Concept (AKUC) was founded to uplift the living standards and create opportunities
+                        to improve the earnings of low and average income earners and educating the target group on
+                        surrounding risk factors</p>
+                </div>
+                <button class="btn btn-primary btn-custom">Read More</button>
+            </div>
+        </div>
+
+
+    </div>
+    <ng-template #content let-c="close" let-d="dismiss">
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-body text-center">
+            <youtube-player videoId="GYAB4Td62zI" suggestedQuality="highres" [height]="480" [width]="853">
+            </youtube-player>
+        </div>
+
+    </ng-template>
+
+
+</section>
+
+<section class="register">
+    <div class="container">
+        <div class="register-title">
+            <h1>Register as Consumer/Member</h1>
+        </div>
+        <div class="register-text">
+            <p>Get the advantages of AKUC by becoming a Member or a consumer. We have quality products at lowest prize
+                to avail the offers become a member or consumer</p>
+        </div>
+    </div>
+</section>
