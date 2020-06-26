@@ -10,7 +10,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbModalConfig, NgbModal]
 })
 export class GetStratedComponent implements OnInit {
-  images = [1, 1, 1].map(n => `../../../assets/banner_bg.png`);
+  images = [1, 2, 3, 4].map(n => `../../../assets/bg_` + n + `.png`);
 
   constructor(
     private router: Router,

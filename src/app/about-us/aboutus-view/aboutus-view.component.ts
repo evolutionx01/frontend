@@ -9,7 +9,7 @@ import { Lightbox } from 'ngx-lightbox';
 export class AboutusViewComponent implements OnInit {
 
   albumArr = [];
-  caption = ['', 'Work Station', 'Waiting Room', 'Reception', 'Reception','Conference Room', 'Board Room', 'Meeting Room']
+  caption = ['', 'Work Station', 'Waiting Room', 'Reception', 'Reception', 'Conference Room', 'Board Room', 'Meeting Room'];
 
   constructor(
     private lightbox: Lightbox

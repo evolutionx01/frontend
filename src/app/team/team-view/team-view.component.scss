@@ -1,0 +1,111 @@
+.page_banner {
+    background-image: url("../../../assets/page_banner.jpg");
+    padding: 5rem 0;
+    h2 {
+        color: white;
+    }
+}
+.team-list {
+    padding: 2.5rem 0;
+}
+.team-block-two {
+    .inner-box {
+        margin-bottom: 4rem;
+        &:hover {
+            .social-links {
+                -webkit-transform: scaleY(1);
+                -moz-transform: scaleY(1);
+                -ms-transform: scaleY(1);
+                -o-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+            .lower-content .link-box a {
+                background-color: #d94b38;
+                border-color: #d94b38;
+                color: #ffffff;
+            }
+        }
+        .social-links {
+            position: absolute;
+            right: 30px;
+            top: 10px;
+            background-color: #d94b38;
+            padding: 10px 0 5px;
+            border-radius: 5px;
+            -webkit-transform: scaleY(0);
+            -moz-transform: scaleY(0);
+            -ms-transform: scaleY(0);
+            -o-transform: scaleY(0);
+            transform: scaleY(0);
+            -webkit-transform-origin: top;
+            -moz-transform-origin: top;
+            -ms-transform-origin: top;
+            -o-transform-origin: top;
+            transform-origin: top;
+            -webkit-transition: all 300ms ease;
+            -moz-transition: all 300ms ease;
+            -ms-transition: all 300ms ease;
+            -o-transition: all 300ms ease;
+            transition: all 300ms ease;
+            li {
+                position: relative;
+                display: block;
+                width: 35px;
+                font-size: 14px;
+                text-align: center;
+                line-height: 20px;
+                margin-bottom: 10px;
+                a {
+                    color: #ffffff;
+                }
+            }
+        }
+        .lower-content {
+            position: relative;
+            text-align: center;
+            padding-top: 10px;
+            .name {
+                display: block;
+                font-size: 20px;
+                line-height: 1.2em;
+                color: #333333;
+                font-weight: 700;
+                margin-bottom: 5px;
+                a {
+                    text-decoration: none;
+                    font-size: 1rem;
+                    color: #d55342;
+                }
+            }
+            .designation {
+                display: block;
+                font-size: 15px;
+                line-height: 25px;
+                color: #777777;
+                font-weight: 400;
+                letter-spacing: 1px;
+                margin-bottom: 5px;
+                text-transform: capitalize;
+                margin-bottom: 25px;
+            }
+
+            .link-box a {
+                display: inline-block;
+                height: 50px;
+                width: 50px;
+                text-align: center;
+                line-height: 48px;
+                border: 1px solid #d8d8d8;
+                border-radius: 50%;
+                font-size: 18px;
+                color: #555555;
+                font-weight: 400;
+                -webkit-transition: all 300ms ease;
+                -moz-transition: all 300ms ease;
+                -ms-transition: all 300ms ease;
+                -o-transition: all 300ms ease;
+                transition: all 300ms ease;
+            }
+        }
+    }
+}
