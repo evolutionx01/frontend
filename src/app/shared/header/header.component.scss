@@ -45,3 +45,12 @@ header {
         background-color: #d55342;
     }
 }
+
+@media (max-width: 991.98px) {
+    .menu_banner {
+        padding-bottom: 0 !important;
+    }
+    .menu_container {
+        position: relative !important;
+    }
+}

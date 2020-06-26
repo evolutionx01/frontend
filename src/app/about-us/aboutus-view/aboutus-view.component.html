@@ -37,7 +37,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-4" *ngFor="let image of albumArr; let i=index">
+            <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let image of albumArr; let i=index">
                 <div class="card margin-bottom px-2 py-2">
                     <img class="img-fluid" [src]="image.thumb" (click)="open(i)" />
                 </div>

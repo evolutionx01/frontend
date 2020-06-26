@@ -2,7 +2,7 @@
     <ngb-carousel *ngIf="images">
         <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
-                <img [src]="images[0]" alt="Random first slide">
+                <img class="img-fluid" [src]="images[0]" alt="Random first slide">
             </div>
             <div class="carousel-caption">
                 <h3>Welcome to AK Universal Concept</h3>
@@ -11,7 +11,7 @@
         </ng-template>
         <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
-                <img [src]="images[1]" alt="Random second slide">
+                <img class="img-fluid" [src]="images[1]" alt="Random second slide">
             </div>
             <div class="carousel-caption">
                 <h3>Commitment</h3>
@@ -20,7 +20,7 @@
         </ng-template>
         <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
-                <img [src]="images[0]" alt="Random third slide">
+                <img class="img-fluid" [src]="images[0]" alt="Random third slide">
             </div>
             <div class="carousel-caption">
                 <h3>Teamwork</h3>
@@ -29,7 +29,7 @@
         </ng-template>
         <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
-                <img [src]="images[1]" alt="Random third slide">
+                <img class="img-fluid" [src]="images[1]" alt="Random third slide">
             </div>
             <div class="carousel-caption">
                 <h3>Communication</h3>
@@ -115,7 +115,7 @@
 <section class="about-us">
     <div class="container-fluid">
         <div class="row">
-            <div class="col no-gutter">
+            <div class="col-lg-6 col-md-12 col-sm-12 no-gutter">
                 <div class="youtube_video">
                     <figure>
                         <img class="img-fluid" src="../../../assets/aboutus.png" />
@@ -123,7 +123,7 @@
                     </figure>
                 </div>
             </div>
-            <div class="col foundation_title">
+            <div class="col-lg-6 col-md-12 col-sm-12 foundation_title">
                 <div class="sec-title">
                     <h1>Welcome to our AKUC Foundation Since 2013</h1>
                 </div>
@@ -132,13 +132,13 @@
                         to improve the earnings of low and average income earners and educating the target group on
                         surrounding risk factors</p>
                 </div>
-                <button routerLink="/aboutus" class="btn btn-custom mr-2">Read More</button>
-                <a href="https://www.facebook.com/ak.uc.58958" target="_blank" class="btn btn-custom  mr-2"><i
+                <button routerLink="/aboutus" class="btn btn-custom mb-2 mr-2">Read More</button>
+                <a href="https://www.facebook.com/ak.uc.58958" target="_blank" class="btn btn-custom  mb-2 mr-2"><i
                         class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="https://twitter.com/AKUniversalCon1" target="_blank" class="btn btn-custom  mr-2"><i
+                <a href="https://twitter.com/AKUniversalCon1" target="_blank" class="btn btn-custom  mb-2 mr-2"><i
                         class="fa fa-twitter" aria-hidden="true"></i></a>
                 <a href="https://www.youtube.com/channel/UCHhCrtsU0oUznZEKyG0-6DQ" target="_blank"
-                    class="btn btn-custom"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                    class="btn btn-custom mb-2"><i class="fa fa-youtube" aria-hidden="true"></i></a>
             </div>
         </div>
 
@@ -149,7 +149,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
         <div class="modal-body text-center">
-            <youtube-player videoId="82MDlSf48vY" suggestedQuality="highres" [height]="480" [width]="853">
+            <youtube-player videoId="82MDlSf48vY" suggestedQuality="highres">
             </youtube-player>
         </div>
 

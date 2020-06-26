@@ -21,9 +21,11 @@
     color: red;
     cursor: pointer;
 }
-.flexAlign {
-    align-content: flex-end;
-    flex-direction: column;
+@media (min-width: 768px) {
+    .flexAlign {
+        align-content: flex-end;
+        flex-direction: column;
+    }
 }
 
 .form-custom {
