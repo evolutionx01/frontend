@@ -5,7 +5,11 @@
   "projects": {
     "frontend": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,7 +29,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.scss",
+              "node_modules/ngx-lightbox/lightbox.css"
             ],
             "scripts": []
           },
@@ -124,6 +129,10 @@
   },
   "defaultProject": "frontend",
   "cli": {
+<<<<<<< HEAD
     "analytics": "57c865bc-b9ab-49b7-9acc-faacdce69ce8"
+=======
+    "analytics": "a84297c1-d837-40cf-b98f-74cfbf8a24a8"
+>>>>>>> c8725b8ae4ef2ec954ae4203508461c44d5dca2e
   }
 }

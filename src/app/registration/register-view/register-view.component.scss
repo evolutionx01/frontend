@@ -1,0 +1,38 @@
+.page_banner {
+    background-image: url("../../../assets/page_banner.jpg");
+    padding: 5rem 0;
+    h2 {
+        color: white;
+    }
+}
+
+.registration {
+    padding: 5rem 0;
+    position: relative;
+    //background-color: #f8f3e8;
+
+    .card {
+        .card-body {
+            text-align: center;
+            transition: all 300ms ease;
+            &:hover {
+                background-image: url("../../../assets/header_banner.png");
+                box-shadow: 0 6px 13px rgba(214, 214, 214, 0.75);
+            }
+            h4 {
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+}
+
+.btn-custom {
+    position: relative;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ffffff;
+    padding: 15px 45px;
+    background: #d94b38;
+    font-weight: 400;
+    border: none;
+}

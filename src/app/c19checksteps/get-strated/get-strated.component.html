@@ -6,8 +6,7 @@
             </div>
             <div class="carousel-caption">
                 <h3>Welcome to AK Universal Concept</h3>
-                <p>Unity is Our Aim</p>
-                <p>Benevolence is Our Business</p>
+                <p>Unity is Our Aim, Benevolence is Our Business</p>
             </div>
         </ng-template>
         <ng-template ngbSlide>
@@ -15,17 +14,26 @@
                 <img [src]="images[1]" alt="Random second slide">
             </div>
             <div class="carousel-caption">
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h3>Commitment</h3>
+                <p>Individual Commitment to a Group Effort.</p>
             </div>
         </ng-template>
         <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
-                <img [src]="images[2]" alt="Random third slide">
+                <img [src]="images[0]" alt="Random third slide">
             </div>
             <div class="carousel-caption">
-                <h3>Third slide label</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <h3>Teamwork</h3>
+                <p>Teamwork Means that We Share A Common Goal.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random third slide">
+            </div>
+            <div class="carousel-caption">
+                <h3>Communication</h3>
+                <p>We Recognize Our Representative As The Backbone of Our Organization.</p>
             </div>
         </ng-template>
     </ngb-carousel>
@@ -88,7 +96,7 @@
             <div class="col mx-1 col-xs-12">
                 <div class="card">
                     <div class="card-body">
-                        <img src="../../../assets/logo_HC.png">
+                        <img src="../../../assets/logo.png">
                     </div>
                 </div>
             </div>
@@ -99,27 +107,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col mx-1 col-xs-12">
-                <div class="card ">
-                    <div class="card-body">
-                        <img src="../../../assets/logo_HC.png">
-                    </div>
-                </div>
-            </div>
-            <div class="col mx-1 col-xs-12">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="../../../assets/logo_HC.png">
-                    </div>
-                </div>
-            </div>
-            <div class="col mx-1 col-xs-12">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="../../../assets/logo_HC.png">
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>
@@ -131,7 +119,7 @@
                 <div class="youtube_video">
                     <figure>
                         <img class="img-fluid" src="../../../assets/aboutus.png" />
-                        <span (click)="open(content)" class="icon fa fa-play"></span>
+                        <span (click)="open(content)"><i class="fa fa-play" aria-hidden="true"></i></span>
                     </figure>
                 </div>
             </div>
@@ -144,18 +132,24 @@
                         to improve the earnings of low and average income earners and educating the target group on
                         surrounding risk factors</p>
                 </div>
-                <button class="btn btn-primary btn-custom">Read More</button>
+                <button routerLink="/aboutus" class="btn btn-custom mr-2">Read More</button>
+                <a href="https://www.facebook.com/ak.uc.58958" target="_blank" class="btn btn-custom  mr-2"><i
+                        class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/AKUniversalCon1" target="_blank" class="btn btn-custom  mr-2"><i
+                        class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/channel/UCHhCrtsU0oUznZEKyG0-6DQ" target="_blank"
+                    class="btn btn-custom"><i class="fa fa-youtube" aria-hidden="true"></i></a>
             </div>
         </div>
 
 
     </div>
-    <ng-template #content let-c="close" let-d="dismiss">
+    <ng-template #content let-c="close" let-d="dismiss" class="youtube_model">
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
         <div class="modal-body text-center">
-            <youtube-player videoId="GYAB4Td62zI" suggestedQuality="highres" [height]="480" [width]="853">
+            <youtube-player videoId="82MDlSf48vY" suggestedQuality="highres" [height]="480" [width]="853">
             </youtube-player>
         </div>
 
@@ -167,11 +161,15 @@
 <section class="register">
     <div class="container">
         <div class="register-title">
-            <h1>Register as Consumer/Member</h1>
+            <h1>Register with us</h1>
         </div>
         <div class="register-text">
             <p>Get the advantages of AKUC by becoming a Member or a consumer. We have quality products at lowest prize
                 to avail the offers become a member or consumer</p>
         </div>
+        <div class="register-btn">
+            <button (click)="register()" class="btn btn-custom">Register Now</button>
+        </div>
+
     </div>
 </section>

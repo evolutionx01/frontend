@@ -1,0 +1,256 @@
+<section>
+    <div class="page_banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h4>{{this.title}}</h4>
+                </div>
+                <div class="col-6 ">
+                    <div class="form-group row flexAlign">
+
+                        <div class="col-4">
+                            <select class="form-control form-custom" [(ngModel)]="selectedLanguage"
+                                (ngModelChange)="onChange($event)" name="sel2">
+                                <option value="en">English</option>
+                                <option value="ma">Malay</option>
+                                <option value="ch">Chinese</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="con-form">
+
+    <div class="container">
+        <form [formGroup]="consumerForm">
+            <div class="form-group">
+                <label>{{this.fieldLabelen.name}}<span class="text-danger">*</span></label>
+                <input type="text" formControlName="name" class="form-control"
+                    [ngClass]="{ 'is-invalid': f.name.errors && f.name.touched }" />
+                <div *ngIf="f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">{{this.fieldLabelen.name}} is required</div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.NRIC_no}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="NRIC_no" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.NRIC_no.errors && f.NRIC_no.touched }" />
+                    <div *ngIf="f.NRIC_no.errors" class="invalid-feedback">
+                        <div *ngIf="f.NRIC_no.errors.required">{{this.fieldLabelen.NRIC_no}} is required</div>
+                        <div *ngIf="f.NRIC_no.errors.NRIC_no">{{this.fieldLabelen.NRIC_no}} must be a valid one</div>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.marital_status}}<span class="text-danger">*</span></label>
+                    <select formControlName="marital_status" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.marital_status.errors && f.marital_status.touched }">
+                        <option value="married">Married</option>
+                        <option value="single">Single</option>
+                    </select>
+                    <div *ngIf="f.marital_status.errors" class="invalid-feedback">
+                        <div *ngIf="f.marital_status.errors.required">{{this.fieldLabelen.marital_status}} is required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.gender}}<span class="text-danger">*</span></label>
+                    <select formControlName="gender" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.gender.errors && f.gender.touched }">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="transgender">Transgender</option>
+                    </select>
+                    <div *ngIf="f.gender.errors" class="invalid-feedback">
+                        <div *ngIf="f.gender.errors.required">{{this.fieldLabelen.gender}} is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>{{this.fieldLabelen.status}}<span class="text-danger">*</span></label>
+                    <select formControlName="status" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.status.errors && f.status.touched }">
+                        <option value="national">National (Native)</option>
+                        <option value="citizen">Citizen (Immigrant)</option>
+                    </select>
+                    <div *ngIf="f.status.errors" class="invalid-feedback">
+                        <div *ngIf="f.status.errors.required">{{this.fieldLabelen.status}} is required</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>{{this.fieldLabelen.race}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="race" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.race.errors && f.race.touched }" />
+                    <div *ngIf="f.race.errors" class="invalid-feedback">
+                        <div *ngIf="f.race.errors.required">{{this.fieldLabelen.race}} is required</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>{{this.fieldLabelen.country}}</label>
+                    <input type="text" formControlName="country" class="form-control" />
+                </div>
+                <div class="form-group col-6">
+                    <label>{{this.fieldLabelen.passport_no}}</label>
+                    <input type="text" formControlName="passport_no" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{this.fieldLabelen.address}}<span class="text-danger">*</span></label>
+                <input type="text" formControlName="address" class="form-control"
+                    [ngClass]="{ 'is-invalid': f.address.errors && f.address.touched }" />
+                <div *ngIf="f.address.errors" class="invalid-feedback">
+                    <div *ngIf="f.address.errors.required">{{this.fieldLabelen.address}} is required</div>
+
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.town}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="town" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.town.errors && f.town.touched }" />
+                    <div *ngIf="f.town.errors" class="invalid-feedback">
+                        <div *ngIf="f.town.errors.required">{{this.fieldLabelen.town}} is required</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.state}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="state" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.state.errors && f.state.touched }" />
+                    <div *ngIf="f.state.errors" class="invalid-feedback">
+                        <div *ngIf="f.state.errors.required">{{this.fieldLabelen.state}} is required</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.postal_code}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="postal_code" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.postal_code.errors && f.postal_code.touched }" />
+                    <div *ngIf="f.postal_code.errors" class="invalid-feedback">
+                        <div *ngIf="f.postal_code.errors.required">{{this.fieldLabelen.postal_code}} is required</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.email}}</label>
+                    <input type="text" formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.email.errors && f.email.touched }" />
+                    <div *ngIf="f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.email">{{this.fieldLabelen.email}} must be a valid one</div>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.whatsapp}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="whatsapp" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.whatsapp.errors && f.whatsapp.touched }" />
+                    <div *ngIf="f.whatsapp.errors" class="invalid-feedback">
+                        <div *ngIf="f.whatsapp.errors.required">{{this.fieldLabelen.whatsapp}} is required</div>
+                        <div *ngIf="f.whatsapp.errors.pattern">{{this.fieldLabelen.whatsapp}} must be a valid one</div>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.mobile}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="mobile" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.mobile.errors && f.mobile.touched }" />
+                    <div *ngIf="f.mobile.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobile.errors.required">{{this.fieldLabelen.mobile}} is required</div>
+                        <div *ngIf="f.mobile.errors.pattern">{{this.fieldLabelen.mobile}} must be a valid one</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.preffered_communication}}<span class="text-danger">*</span></label>
+                    <select formControlName="preffered_communication" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.preffered_communication.errors && f.preffered_communication.touched }">
+                        <option value="mail">Mail</option>
+                        <option value="email">Email</option>
+                        <option value="sms">SMS</option>
+                        <option value="tele">Telephone</option>
+                        <option value="whatsapp">WhatsApp</option>
+                    </select>
+                    <div *ngIf="f.preffered_communication.errors" class="invalid-feedback">
+                        <div *ngIf="f.preffered_communication.errors.required">
+                            {{this.fieldLabelen.preffered_communication}} is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.profession}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="profession" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.profession.errors && f.profession.touched }" />
+                    <div *ngIf="f.profession.errors" class="invalid-feedback">
+                        <div *ngIf="f.profession.errors.required">{{this.fieldLabelen.profession}} is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.income_net}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="income_net" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.income_net.errors && f.income_net.touched }" />
+                    <div *ngIf="f.income_net.errors" class="invalid-feedback">
+                        <div *ngIf="f.income_net.errors.required">{{this.fieldLabelen.income_net}} is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" formControlName="spices" type="checkbox" value="">
+                    <label class="form-check-label">
+                        Accepting the <span class="teamsread" (click)="openModal(content)">encapsulation of
+                            spices</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mr-1 btn-custom" [disabled]="this.consumerForm.invalid"
+                    (click)="addConsumer()">Register</button>
+                <button class="btn btn-secondary" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</section>
+<section>
+    <ng-template #content let-c="close" let-d="dismiss">
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-header">
+            {{this.modalHeader}}
+        </div>
+        <div class="modal-body">
+            <div [innerHTML]="this.modalContent"></div>
+        </div>
+
+    </ng-template>
+
+    <ng-template #confirmation let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            Thank you for registering with AKUC
+        </div>
+        <div class="modal-body">
+            You have been successfully registered, you will be notified in the registered mobile number
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary btn-custom" (click)="redirectToReg()">Thankyou</button>
+        </div>
+
+    </ng-template>
+</section>

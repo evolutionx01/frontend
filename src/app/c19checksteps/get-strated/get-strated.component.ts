@@ -21,6 +21,7 @@ export class GetStratedComponent implements OnInit {
     config.keyboard = false;
     config.centered = true;
     config.size = 'xl';
+    config.windowClass = 'youtube_modal';
   }
 
   ngOnInit(): void {}
@@ -29,7 +30,8 @@ export class GetStratedComponent implements OnInit {
     this.modalService.open(content);
   }
 
-  public ongetStartedClick() {
-    this.router.navigate(['/terms-and-conditions']);
+
+  public register() {
+    this.router.navigate(['/register']);
   }
 }

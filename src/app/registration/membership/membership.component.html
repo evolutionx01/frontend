@@ -1,122 +1,711 @@
 <section>
     <div class="page_banner">
         <div class="container">
-            <h2>Registration</h2>
+            <div class="row">
+                <div class="col-6">
+                    <h4>{{this.title}}</h4>
+                </div>
+                <div class="col-6 ">
+                    <div class="form-group row flexAlign">
+
+                        <div class="col-4">
+                            <select class="form-control form-custom" [(ngModel)]="selectedLanguage"
+                                (ngModelChange)="onChange($event)" name="sel2">
+                                <option value="en">English</option>
+                                <option value="ma">Malay</option>
+                                <!-- <option value="ch">Chinese</option> -->
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 <section class="mem-form">
-    <div class="container">
-        <ngb-tabset type="pills">
-            <ngb-tab title="Membership Form">
-                <ng-template ngbTabContent>
-                    <form [formGroup]="registerForm">
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <img [src]="url" height="200"> <br />
-                                <input class="form-control" type='file' formControlName="file"
-                                    [ngClass]="{ 'is-invalid': f.file.errors && f.file.touched }"
-                                    (change)="onSelectFile($event)" />
-                                <div *ngIf="f.file.errors" class="invalid-feedback">
-                                    <div *ngIf="f.file.errors.required">Image is required</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
 
-                            <div class="form-group col">
-                                <label>Title</label>
-                                <select formControlName="title" class="form-control"
-                                    [ngClass]="{ 'is-invalid': f.title.errors && f.title.touched }">
-                                    <option value=""></option>
-                                    <option value="Mr">Mr</option>
-                                    <option value="Mrs">Mrs</option>
-                                    <option value="Miss">Miss</option>
-                                    <option value="Ms">Ms</option>
+    <div class="container">
+        <form [formGroup]="registerForm">
+            <div class="form-row">
+                <div class="col-9">
+                    <div class="form-group">
+                        <label>{{this.fieldLabelen.name}}<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="name" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.name.errors && f.name.touched }" />
+                        <div *ngIf="f.name.errors" class="invalid-feedback">
+                            <div *ngIf="f.name.errors.required">{{this.fieldLabelen.name}} is required</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>{{this.fieldLabelen.birth_date}}<span class="text-danger">*</span></label>
+                            <div class="input-group"
+                                [ngClass]="{ 'is-invalid': f.birth_date.errors && f.birth_date.touched }">
+                                <input class="form-control" placeholder="yyyy-mm-dd" formControlName="birth_date"
+                                    name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
+                                    [ngStyle]="{ 'border-color':f.birth_date.errors && f.birth_date.touched ? 'red' : '#ced4da' }">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+                                        type="button"></button>
+                                </div>
+                            </div>
+                            <div *ngIf="f.birth_date.errors" class="invalid-feedback">
+                                <div *ngIf="f.birth_date.errors.required">{{this.fieldLabelen.birth_date}} is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-4">
+                            <label>{{this.fieldLabelen.birth_day}}<span class="text-danger">*</span></label>
+                            <select formControlName="birth_day" class="form-control"
+                                [ngClass]="{ 'is-invalid': f.birth_day.errors && f.birth_day.touched }">
+                                <option value="sunday">Sunday</option>
+                                <option value="monday">Monday</option>
+                                <option value="tuesday">Tuesday</option>
+                                <option value="wednesday">Wednesday</option>
+                                <option value="thursday">Thursday</option>
+                                <option value="friday">Friday</option>
+                                <option value="saturday">Saturday</option>
+                            </select>
+                            <div *ngIf="f.birth_day.errors" class="invalid-feedback">
+                                <div *ngIf="f.birth_day.errors.required">{{this.fieldLabelen.birth_day}} is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-4">
+                            <label>{{this.fieldLabelen.birth_time}}<span class="text-danger">*</span></label>
+
+                            <input type="text" formControlName="birth_time" class="form-control"
+                                [ngClass]="{ 'is-invalid': f.birth_time.errors && f.birth_time.touched }" />
+
+                            <div *ngIf="f.birth_time.errors" class="invalid-feedback">
+                                <div *ngIf="f.birth_time.errors.required">{{this.fieldLabelen.birth_time}} is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>{{this.fieldLabelen.NRIC_new}}<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="NRIC_new" class="form-control"
+                                [ngClass]="{ 'is-invalid': f.NRIC_new.errors && f.NRIC_new.touched }" />
+                            <div *ngIf="f.NRIC_new.errors" class="invalid-feedback">
+                                <div *ngIf="f.NRIC_new.errors.required">{{this.fieldLabelen.NRIC_new}} is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>{{this.fieldLabelen.NRIC_old}}</label>
+                            <input type="text" formControlName="NRIC_old" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label>{{this.fieldLabelen.marital_status}}<span class="text-danger">*</span></label>
+                            <select formControlName="marital_status" class="form-control"
+                                [ngClass]="{ 'is-invalid': f.marital_status.errors && f.marital_status.touched }">
+                                <option value="married">Married</option>
+                                <option value="single">Single</option>
+                            </select>
+                            <div *ngIf="f.marital_status.errors" class="invalid-feedback">
+                                <div *ngIf="f.marital_status.errors.required">{{this.fieldLabelen.marital_status}} is
+                                    required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-4">
+                            <label>{{this.fieldLabelen.gender}}<span class="text-danger">*</span></label>
+                            <select formControlName="gender" class="form-control"
+                                [ngClass]="{ 'is-invalid': f.gender.errors && f.gender.touched }">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="transgender">Transgender</option>
+                            </select>
+                            <div *ngIf="f.gender.errors" class="invalid-feedback">
+                                <div *ngIf="f.gender.errors.required">{{this.fieldLabelen.gender}} is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-4">
+                            <label>{{this.fieldLabelen.age}}<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="age" class="form-control"
+                                [ngClass]="{ 'is-invalid': f.age.errors && f.age.touched }" />
+                            <div *ngIf="f.age.errors" class="invalid-feedback">
+                                <div *ngIf="f.age.errors.required">{{this.fieldLabelen.age}} is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>Upload Photo<span class="text-danger">*</span></label>
+                        <div class="custom-file">
+                            <input type="file" (change)="fileChange($event)" class="form-control custom-file-input"
+                                id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <label class="form-control custom-file-label" for="inputGroupFile01">Choose file<span
+                                    class="text-danger">*</span></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <img [src]=this.url class="img-thumbnail" />
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>{{this.fieldLabelen.whatsapp}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="whatsapp" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.whatsapp.errors && f.whatsapp.touched }" />
+                    <div *ngIf="f.whatsapp.errors" class="invalid-feedback">
+                        <div *ngIf="f.whatsapp.errors.required">{{this.fieldLabelen.whatsapp}} is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>{{this.fieldLabelen.mobile}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="mobile" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.mobile.errors && f.mobile.touched }" />
+                    <div *ngIf="f.mobile.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobile.errors.required">{{this.fieldLabelen.mobile}} is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.birth_religion}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="birth_religion" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.birth_religion.errors && f.birth_religion.touched }" />
+                    <div *ngIf="f.birth_religion.errors" class="invalid-feedback">
+                        <div *ngIf="f.birth_religion.errors.required">{{this.fieldLabelen.birth_religion}} is required
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.current_religion}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="current_religion" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.current_religion.errors && f.current_religion.touched }" />
+                    <div *ngIf="f.current_religion.errors" class="invalid-feedback">
+                        <div *ngIf="f.current_religion.errors.required">{{this.fieldLabelen.current_religion}} is
+                            required</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.mother_tongue}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="mother_tongue" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.mother_tongue.errors && f.mother_tongue.touched }" />
+                    <div *ngIf="f.mother_tongue.errors" class="invalid-feedback">
+                        <div *ngIf="f.mother_tongue.errors.required">{{this.fieldLabelen.mother_tongue}} is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.universal_status}}<span class="text-danger">*</span></label>
+                    <select formControlName="universal_status" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.universal_status.errors && f.universal_status.touched }">
+                        <option value="national">National (Native)</option>
+                        <option value="citizen">Citizen (Immigrant)</option>
+                    </select>
+                    <div *ngIf="f.universal_status.errors" class="invalid-feedback">
+                        <div *ngIf="f.universal_status.errors.required">{{this.fieldLabelen.universal_status}} is
+                            required</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.continent}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="continent" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.continent.errors && f.continent.touched }" />
+                    <div *ngIf="f.continent.errors" class="invalid-feedback">
+                        <div *ngIf="f.continent.errors.required">{{this.fieldLabelen.continent}} is required</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.descendant}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="descendant" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.descendant.errors && f.descendant.touched }" />
+                    <div *ngIf="f.descendant.errors" class="invalid-feedback">
+                        <div *ngIf="f.descendant.errors.required">{{this.fieldLabelen.descendant}} is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>{{this.fieldLabelen.Education_level}}<span class="text-danger">*</span></label>
+                <select formControlName="Education_level" class="form-control"
+                    [ngClass]="{ 'is-invalid': f.Education_level.errors && f.Education_level.touched }">
+                    <option value="rendah">Rendah </option>
+                    <option value="menengah">Menengah </option>
+                    <option value="tinggi">Tinggi </option>
+                    <option value="institut">Institut </option>
+                    <option value="kolej">Kolej </option>
+                    <option value="universiti">Universiti</option>
+                </select>
+                <div *ngIf="f.Education_level.errors" class="invalid-feedback">
+                    <div *ngIf="f.Education_level.errors.required">{{this.fieldLabelen.Education_level}} is required
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.email}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.email.errors && f.email.touched }" />
+                    <div *ngIf="f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">{{this.fieldLabelen.email}} is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.fb}}</label>
+                    <input type="text" formControlName="fb" class="form-control" />
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.twitter}}</label>
+                    <input type="text" formControlName="twitter" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>{{this.fieldLabelen.address}}<span class="text-danger">*</span></label>
+                <input type="text" formControlName="address" class="form-control"
+                    [ngClass]="{ 'is-invalid': f.address.errors && f.address.touched }" />
+                <div *ngIf="f.address.errors" class="invalid-feedback">
+                    <div *ngIf="f.address.errors.required">{{this.fieldLabelen.address}} is required</div>
+
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.town}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="town" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.town.errors && f.town.touched }" />
+                    <div *ngIf="f.town.errors" class="invalid-feedback">
+                        <div *ngIf="f.town.errors.required">{{this.fieldLabelen.town}} is required</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.state}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="state" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.state.errors && f.state.touched }" />
+                    <div *ngIf="f.state.errors" class="invalid-feedback">
+                        <div *ngIf="f.state.errors.required">{{this.fieldLabelen.state}} is required</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <label>{{this.fieldLabelen.postal_code}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="postal_code" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.postal_code.errors && f.postal_code.touched }" />
+                    <div *ngIf="f.postal_code.errors" class="invalid-feedback">
+                        <div *ngIf="f.postal_code.errors.required">{{this.fieldLabelen.postal_code}} is required</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>{{this.fieldLabelen.birth_place}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="birth_place" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.birth_place.errors && f.birth_place.touched }" />
+                    <div *ngIf="f.birth_place.errors" class="invalid-feedback">
+                        <div *ngIf="f.birth_place.errors.required">{{this.fieldLabelen.birth_place}} is required</div>
+
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>{{this.fieldLabelen.birth_town}}<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="birth_town" class="form-control"
+                        [ngClass]="{ 'is-invalid': f.birth_town.errors && f.birth_town.touched }" />
+                    <div *ngIf="f.birth_town.errors" class="invalid-feedback">
+                        <div *ngIf="f.birth_town.errors.required">{{this.fieldLabelen.birth_town}} is required</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group boxview">
+                <label>{{this.fieldLabelen.language_title}}</label>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">{{this.fieldLabelen.th_title}}</th>
+                            <th scope="col">{{this.fieldLabelen.th_spoken}}</th>
+                            <th scope="col">{{this.fieldLabelen.th_reading}}</th>
+                            <th scope="col">{{this.fieldLabelen.th_writing}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Malay</td>
+                            <td><select formControlName="malay_spoken" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
                                 </select>
-                                <div *ngIf="f.title.errors" class="invalid-feedback">
-                                    <div *ngIf="f.title.errors.required">Title is required</div>
-                                </div>
+
+                            </td>
+                            <td><select formControlName="malay_reading" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                            <td><select formControlName="malay_writting" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td><select formControlName="eng_spoken" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                            <td><select formControlName="eng_reading" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                            <td><select formControlName="eng_writting" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Chinese</td>
+                            <td><select formControlName="chinees_spoken" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                            <td><select formControlName="chinees_reading" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                            <td><select formControlName="chinees_writting" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tamil</td>
+                            <td><select formControlName="tamil_spoken" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                            <td><select formControlName="tamil_reading" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                            <td><select formControlName="tamil_writting" class="form-control">
+                                    <option value="fluent">Fluent</option>
+                                    <option value="average">Average</option>
+                                    <option value="weak">Weak</option>
+                                    <option value="ignorance">Ignorance</option>
+                                </select>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group boxview">
+                <div class="form-row ">
+                    <div class="form-group col-3">
+                        <label>{{this.fieldLabelen.economic_type}}<span class="text-danger">*</span></label>
+                        <select formControlName="economic_type" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.economic_type.errors && f.economic_type.touched }">
+                            <option value="business">Business</option>
+                            <option value="employment">Employment</option>
+                        </select>
+                        <div *ngIf="f.economic_type.errors" class="invalid-feedback">
+                            <div *ngIf="f.economic_type.errors.required">{{this.fieldLabelen.economic_type}} is required
                             </div>
-                            <div class="form-group col-5">
-                                <label>First Name</label>
-                                <input type="text" formControlName="firstName" class="form-control"
-                                    [ngClass]="{ 'is-invalid': f.firstName.errors && f.firstName.touched }" />
-                                <div *ngIf="f.firstName.errors" class="invalid-feedback">
-                                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
-                                </div>
-                            </div>
-                            <div class="form-group col-5">
-                                <label>Last Name</label>
-                                <input type="text" formControlName="lastName" class="form-control"
-                                    [ngClass]="{ 'is-invalid': f.lastName.errors && f.lastName.touched }" />
-                                <div *ngIf="f.lastName.errors" class="invalid-feedback">
-                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-                                </div>
-                            </div>
+
                         </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="text" formControlName="email" class="form-control"
-                                [ngClass]="{ 'is-invalid': f.email.errors && f.email.touched }" />
-                            <div *ngIf="f.email.errors" class="invalid-feedback">
-                                <div *ngIf="f.email.errors.required">Email is required</div>
-                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                    <div class="form-group col-3">
+                        <label>{{this.fieldLabelen.employee_position}}</label>
+                        <input type="text" formControlName="employee_position" class="form-control" />
+                    </div>
+                    <div class="form-group col-3">
+                        <label>{{this.fieldLabelen.business_type}}</label>
+                        <input type="text" formControlName="business_type" class="form-control" />
+                    </div>
+                    <div class="form-group col-3">
+                        <label>{{this.fieldLabelen.economic_Business_type}}</label>
+                        <input type="text" formControlName="economic_Business_type" class="form-control" />
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label>{{this.fieldLabelen.income_gross}}<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="income_gross" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.income_gross.errors && f.income_gross.touched }" />
+                        <div *ngIf="f.income_gross.errors" class="invalid-feedback">
+                            <div *ngIf="f.income_gross.errors.required">{{this.fieldLabelen.income_gross}} is required
                             </div>
+
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <label>Password</label>
-                                <input type="password" formControlName="password" class="form-control"
-                                    [ngClass]="{ 'is-invalid': f.password.errors && f.password.touched }" />
-                                <div *ngIf="f.password.errors" class="invalid-feedback">
-                                    <div *ngIf="f.password.errors.required">Password is required</div>
-                                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{this.fieldLabelen.income_net}}<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="income_net" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.income_net.errors && f.income_net.touched }" />
+                        <div *ngIf="f.income_net.errors" class="invalid-feedback">
+                            <div *ngIf="f.income_net.errors.required">{{this.fieldLabelen.income_net}} is required</div>
+
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{this.fieldLabelen.income_other}}<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="income_other" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.income_other.errors && f.income_other.touched }" />
+                        <div *ngIf="f.income_other.errors" class="invalid-feedback">
+                            <div *ngIf="f.income_other.errors.required">{{this.fieldLabelen.income_other}} is required
                             </div>
-                            <div class="form-group col">
-                                <label>Confirm Password</label>
-                                <input type="password" formControlName="confirmPassword" class="form-control"
-                                    [ngClass]="{ 'is-invalid': f.confirmPassword.errors && f.confirmPassword.touched }" />
-                                <div *ngIf="f.confirmPassword.errors" class="invalid-feedback">
-                                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-                                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-                                </div>
-                            </div>
+
                         </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms"
-                                class="form-check-input"
-                                [ngClass]="{ 'is-invalid': f.acceptTerms.errors && f.acceptTerms.touched}" />
-                            <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
-                            <div *ngIf="f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label>{{this.fieldLabelen.monthly_expense}}<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="monthly_expense" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.monthly_expense.errors && f.monthly_expense.touched }" />
+                        <div *ngIf="f.monthly_expense.errors" class="invalid-feedback">
+                            <div *ngIf="f.monthly_expense.errors.required">{{this.fieldLabelen.monthly_expense}} is
+                                required</div>
+
                         </div>
-                        <div class="text-center">
-                            <button class="btn btn-primary mr-1" [disabled]="this.registerForm.invalid"
-                                (click)="onSubmit()">Register</button>
-                            <button class="btn btn-secondary" (click)="onReset()">Cancel</button>
+                    </div>
+                    <div class="form-group col-6">
+                        <label>{{this.fieldLabelen.adequate_income}}<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="adequate_income" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.adequate_income.errors && f.adequate_income.touched }" />
+                        <div *ngIf="f.adequate_income.errors" class="invalid-feedback">
+                            <div *ngIf="f.adequate_income.errors.required">{{this.fieldLabelen.adequate_income}} is
+                                required</div>
+
                         </div>
-                    </form>
-                </ng-template>
-            </ngb-tab>
-            <ngb-tab>
-                <ng-template ngbTabTitle>Consumer Form</ng-template>
-                <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin
-                    coffee squid.
-                    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
-                        loko farm-to-table
-                        craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-                        ullamco ad vinyl
-                        cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-                        helvetica VHS salvia
-                        yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-                        sustainable jean
-                        shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown,
-                        tumblr butcher vero
-                        sint qui sapiente accusamus tattooed echo park.</p>
-                </ng-template>
-            </ngb-tab>
-        </ngb-tabset>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-6 ">
+                    <div class="boxview">
+                        <label>{{this.fieldLabelen.status_title}}</label>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+
+                                    <td>{{this.fieldLabelen.health}}<span class="text-danger">*</span></td>
+                                    <td><select formControlName="health" class="form-control"
+                                            [ngClass]="{ 'is-invalid': f.health.errors && f.health.touched }">
+                                            <option value="not_good">Not Good</option>
+                                            <option value="simple">Simple</option>
+                                            <option value="well">Well</option>
+                                            <option value="perfect">Perfect</option>
+                                        </select>
+                                        <div *ngIf="f.health.errors" class="invalid-feedback">
+                                            <div *ngIf="f.health.errors.required">{{this.fieldLabelen.health}} is
+                                                required</div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>{{this.fieldLabelen.general_knowledge}}<span class="text-danger">*</span></td>
+                                    <td><select formControlName="general_knowledge" class="form-control"
+                                            [ngClass]="{ 'is-invalid': f.general_knowledge.errors && f.general_knowledge.touched }">
+                                            <option value="not_good">Not Good</option>
+                                            <option value="simple">Simple</option>
+                                            <option value="well">Well</option>
+                                            <option value="perfect">Perfect</option>
+                                        </select>
+                                        <div *ngIf="f.general_knowledge.errors" class="invalid-feedback">
+                                            <div *ngIf="f.general_knowledge.errors.required">
+                                                {{this.fieldLabelen.general_knowledge}} is required</div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>{{this.fieldLabelen.financial}}<span class="text-danger">*</span></td>
+                                    <td><select formControlName="financial" class="form-control"
+                                            [ngClass]="{ 'is-invalid': f.financial.errors && f.financial.touched }">
+                                            <option value="not_good">Not Good</option>
+                                            <option value="simple">Simple</option>
+                                            <option value="well">Well</option>
+                                            <option value="perfect">Perfect</option>
+                                        </select>
+                                        <div *ngIf="f.financial.errors" class="invalid-feedback">
+                                            <div *ngIf="f.financial.errors.required">{{this.fieldLabelen.financial}} is
+                                                required</div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>{{this.fieldLabelen.hapiness}}<span class="text-danger">*</span></td>
+                                    <td><select formControlName="hapiness" class="form-control"
+                                            [ngClass]="{ 'is-invalid': f.hapiness.errors && f.hapiness.touched }">
+                                            <option value="not_good">Not Good</option>
+                                            <option value="simple">Simple</option>
+                                            <option value="well">Well</option>
+                                            <option value="perfect">Perfect</option>
+                                        </select>
+                                        <div *ngIf="f.hapiness.errors" class="invalid-feedback">
+                                            <div *ngIf="f.hapiness.errors.required">{{this.fieldLabelen.hapiness}} is
+                                                required</div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>{{this.fieldLabelen.leadership}}<span class="text-danger">*</span></td>
+                                    <td><select formControlName="leadership" class="form-control"
+                                            [ngClass]="{ 'is-invalid': f.leadership.errors && f.leadership.touched }">
+                                            <option value="not_good">Not Good</option>
+                                            <option value="simple">Simple</option>
+                                            <option value="well">Well</option>
+                                            <option value="perfect">Perfect</option>
+                                        </select>
+                                        <div *ngIf="f.leadership.errors" class="invalid-feedback">
+                                            <div *ngIf="f.leadership.errors.required">{{this.fieldLabelen.leadership}}
+                                                is required</div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group col-6 ">
+                    <div class="boxview">
+                        <label>{{this.fieldLabelen.wish_title}}</label>
+                        <table class="table">
+
+                            <tbody>
+                                <tr>
+
+                                    <td>{{this.fieldLabelen.wish_economic_type}}</td>
+                                    <td> <input type="text" formControlName="wish_economic_type" class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>{{this.fieldLabelen.wish_income_mothly}}</td>
+                                    <td> <input type="text" formControlName="wish_income_mothly" class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{this.fieldLabelen.wish_type_business}}</td>
+                                    <td> <input type="text" formControlName="wish_type_business" class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>{{this.fieldLabelen.wish_type_employment}}</td>
+                                    <td> <input type="text" formControlName="wish_type_employment"
+                                            class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                <tr>
+
+                                    <td>{{this.fieldLabelen.wish_aim}}</td>
+                                    <td> <input type="text" formControlName="wish_aim" class="form-control" /></td>
+                                </tr>
+                                <tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mr-1" [disabled]="this.registerForm.invalid"
+                    (click)="addMember()">Register</button>
+                <button class="btn btn-secondary" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
     </div>
+</section>
+
+<section>
+    <ng-template #confirmation let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            Thank you for registering with AKUC
+        </div>
+        <div class="modal-body">
+            You have been successfully registered as member of AKUC, you will be notified in the registered mobile
+            number
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary btn-custom" (click)="redirectToReg()">Thankyou</button>
+        </div>
+
+    </ng-template>
 </section>
