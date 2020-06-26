@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+
+.youtube_modal {
+    .modal-content {
+        background-color: transparent;
+        border: none;
+    }
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+.form-control.is-invalid:focus {
+    box-shadow: none;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    font-size: 2.5rem;
+    &:focus {
+        outline: none;
+    }
+}
+
+.modal-header {
+    background-color: #122740;
+    color: white;
+    font-weight: bold;
+}
+
+table thead th {
+    font-size: 13px;
+}
+table tbody td {
+    font-size: 13px;
+    font-weight: bold;
+    .form-control {
+        height: calc(1em + 0.75rem + 2px);
+        padding: 0.2rem 0.75rem;
+    }
+}
+
+.btn {
+    &:focus {
+        box-shadow: none;
+    }
+}

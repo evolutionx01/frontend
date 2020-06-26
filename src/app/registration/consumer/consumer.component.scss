@@ -5,8 +5,7 @@
         color: white;
     }
 }
-
-.mem-form {
+.con-form {
     padding: 2.5rem 0;
 }
 
@@ -17,14 +16,25 @@
         font-size: 13px;
     }
 }
-
-.boxview {
-    padding: 1.5rem;
-    border: 1px solid #ced4da;
-    border-radius: 10px;
+.teamsread {
+    text-decoration: underline;
+    color: red;
+    cursor: pointer;
 }
-
 .flexAlign {
     align-content: flex-end;
     flex-direction: column;
+}
+
+.form-custom {
+    height: calc(1em + 0.75rem + 2px);
+    padding: 0rem 0.75rem;
+}
+
+.btn-custom {
+    position: relative;
+    color: #ffffff;
+    background: #d94b38;
+    font-weight: 400;
+    border: none;
 }

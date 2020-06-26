@@ -35,3 +35,13 @@ header {
         }
     }
 }
+
+.navbar {
+    padding: 0rem 2.5rem;
+    .nav-link {
+        padding: 1rem 1rem;
+    }
+    .active {
+        background-color: #d55342;
+    }
+}
