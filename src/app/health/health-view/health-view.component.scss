@@ -1,0 +1,82 @@
+.page_banner {
+    background-image: url("../../../assets/page_banner.jpg");
+    padding: 5rem 0;
+    h2 {
+        color: white;
+        text-transform: uppercase;
+    }
+    p {
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+}
+section {
+    padding: 2.5rem 0;
+    .sec-title {
+        position: relative;
+
+        h2 {
+            font-size: 2rem;
+            padding-bottom: 0.5rem;
+            &:before {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+
+                margin: 0 auto;
+                display: inline-block;
+                height: 3px;
+                width: 75px;
+                background-color: #d55342;
+                content: "";
+                border-radius: 50%;
+            }
+        }
+    }
+    .desc {
+        padding: 0.5rem 0;
+        text-align: justify;
+    }
+    .tab-button {
+        padding: 1rem 0 0 0;
+
+        .nav-pills {
+            opacity: 1;
+            background-color: #d55342;
+            color: #ffffff;
+            padding: 7.5rem 0;
+            flex: none;
+            .nav-link {
+                color: #fff;
+                border-radius: 0;
+                padding: 0.75rem 7rem 0.75rem 3rem;
+                .tab-name {
+                    font-size: 1.25rem;
+                }
+            }
+            .nav-link.active {
+                color: #d55342;
+                background-color: #fff;
+                .tab-name {
+                    font-weight: bold;
+                }
+            }
+        }
+        .content {
+            padding: 2.5rem 0;
+            background-color: #f8f3e8;
+        }
+    }
+}
+
+.product {
+    padding-bottom: 0;
+    .sec-title {
+        h2 {
+            &::before {
+                right: 0;
+            }
+        }
+    }
+}

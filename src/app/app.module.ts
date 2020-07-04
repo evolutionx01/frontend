@@ -15,6 +15,11 @@ import { LightboxModule } from 'ngx-lightbox';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { SocialLoginModule } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angularx-social-login';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, ContentComponent],
@@ -32,7 +37,27 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     NgxSpinnerModule,
     BrowserAnimationsModule
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: false,
+    //     providers: [
+    //       {
+    //         id: GoogleLoginProvider.PROVIDER_ID,
+    //         provider: new GoogleLoginProvider(
+    //           '850826026349-qpc47s0jqbvll0c3lov9abaasit8jd0b.apps.googleusercontent.com'
+    //         ),
+    //       },
+    //       {
+    //         id: FacebookLoginProvider.PROVIDER_ID,
+    //         provider: new FacebookLoginProvider('clientId'),
+    //       }
+    //     ],
+    //   } as SocialAuthServiceConfig,
+    // },
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

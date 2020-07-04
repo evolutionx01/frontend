@@ -75,13 +75,16 @@
                             </div>
                         </div>
                         <div class="form-group col-4">
-                            <label>{{this.fieldLabelen.birth_time}}<span class="text-danger">*</span></label>
+                            <label>{{this.fieldLabelen.birth_time}}<span class="text-danger">* </span>
+                                <small>(Example 14:00)</small></label>
 
                             <input type="text" formControlName="birth_time" class="form-control"
                                 [ngClass]="{ 'is-invalid': f.birth_time.errors && f.birth_time.touched }" />
 
                             <div *ngIf="f.birth_time.errors" class="invalid-feedback">
                                 <div *ngIf="f.birth_time.errors.required">{{this.fieldLabelen.birth_time}} is required
+                                </div>
+                                <div *ngIf="f.birth_time.errors.pattern">{{this.fieldLabelen.birth_time}} is not valid
                                 </div>
                             </div>
                         </div>
@@ -90,15 +93,23 @@
                         <div class="form-group col-6">
                             <label>{{this.fieldLabelen.NRIC_new}}<span class="text-danger">*</span></label>
                             <input type="text" formControlName="NRIC_new" class="form-control"
-                                [ngClass]="{ 'is-invalid': f.NRIC_new.errors && f.NRIC_new.touched }" />
+                                [ngClass]="{ 'is-invalid': f.NRIC_new.errors && f.NRIC_new.touched }" maxlength="12" />
                             <div *ngIf="f.NRIC_new.errors" class="invalid-feedback">
                                 <div *ngIf="f.NRIC_new.errors.required">{{this.fieldLabelen.NRIC_new}} is required</div>
+                                <div *ngIf="f.NRIC_new.errors.maxlength">{{this.fieldLabelen.NRIC_new}} must be
+                                    12 digits</div>
+                                <div *ngIf="f.NRIC_new.errors.pattern">{{this.fieldLabelen.NRIC_new}} is not valid
+                                </div>
                             </div>
                         </div>
                         <div class="form-group col-6">
                             <label>{{this.fieldLabelen.NRIC_old}}</label>
-                            <input type="text" formControlName="NRIC_old" class="form-control" />
-
+                            <input type="text" formControlName="NRIC_old" class="form-control"
+                                [ngClass]="{ 'is-invalid': f.NRIC_old.errors && f.NRIC_old.touched }" maxlength="12" />
+                            <div *ngIf="f.NRIC_old.errors" class="invalid-feedback">
+                                <div *ngIf="f.NRIC_old.errors.pattern">{{this.fieldLabelen.NRIC_old}} is not valid
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -131,9 +142,11 @@
                         <div class="form-group col-4">
                             <label>{{this.fieldLabelen.age}}<span class="text-danger">*</span></label>
                             <input type="text" formControlName="age" class="form-control"
-                                [ngClass]="{ 'is-invalid': f.age.errors && f.age.touched }" />
+                                [ngClass]="{ 'is-invalid': f.age.errors && f.age.touched }" maxlength="3" />
                             <div *ngIf="f.age.errors" class="invalid-feedback">
                                 <div *ngIf="f.age.errors.required">{{this.fieldLabelen.age}} is required</div>
+                                <div *ngIf="f.age.errors.pattern">{{this.fieldLabelen.age}} is not valid
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,17 +175,21 @@
                 <div class="form-group col-6">
                     <label>{{this.fieldLabelen.whatsapp}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="whatsapp" class="form-control"
-                        [ngClass]="{ 'is-invalid': f.whatsapp.errors && f.whatsapp.touched }" />
+                        [ngClass]="{ 'is-invalid': f.whatsapp.errors && f.whatsapp.touched }" maxlength="12" />
                     <div *ngIf="f.whatsapp.errors" class="invalid-feedback">
                         <div *ngIf="f.whatsapp.errors.required">{{this.fieldLabelen.whatsapp}} is required</div>
+                        <div *ngIf="f.whatsapp.errors.pattern">{{this.fieldLabelen.whatsapp}} is not valid
+                        </div>
                     </div>
                 </div>
                 <div class="form-group col-6">
                     <label>{{this.fieldLabelen.mobile}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="mobile" class="form-control"
-                        [ngClass]="{ 'is-invalid': f.mobile.errors && f.mobile.touched }" />
+                        [ngClass]="{ 'is-invalid': f.mobile.errors && f.mobile.touched }" maxlength="12" />
                     <div *ngIf="f.mobile.errors" class="invalid-feedback">
                         <div *ngIf="f.mobile.errors.required">{{this.fieldLabelen.mobile}} is required</div>
+                        <div *ngIf="f.mobile.errors.pattern">{{this.fieldLabelen.mobile}} is not valid
+                        </div>
                     </div>
                 </div>
             </div>
@@ -265,6 +282,8 @@
                         [ngClass]="{ 'is-invalid': f.email.errors && f.email.touched }" />
                     <div *ngIf="f.email.errors" class="invalid-feedback">
                         <div *ngIf="f.email.errors.required">{{this.fieldLabelen.email}} is required</div>
+                        <div *ngIf="f.email.errors.email">{{this.fieldLabelen.email}} is not valid
+                        </div>
                     </div>
                 </div>
                 <div class="form-group col-4">
@@ -312,7 +331,8 @@
                         [ngClass]="{ 'is-invalid': f.postal_code.errors && f.postal_code.touched }" />
                     <div *ngIf="f.postal_code.errors" class="invalid-feedback">
                         <div *ngIf="f.postal_code.errors.required">{{this.fieldLabelen.postal_code}} is required</div>
-
+                        <div *ngIf="f.postal_code.errors.pattern">{{this.fieldLabelen.postal_code}} is not valid
+                        </div>
                     </div>
                 </div>
             </div>
@@ -498,7 +518,8 @@
                         <div *ngIf="f.income_gross.errors" class="invalid-feedback">
                             <div *ngIf="f.income_gross.errors.required">{{this.fieldLabelen.income_gross}} is required
                             </div>
-
+                            <div *ngIf="f.income_gross.errors.pattern">{{this.fieldLabelen.income_gross}} is not valid
+                            </div>
                         </div>
                     </div>
                     <div class="form-group col-4">
@@ -507,7 +528,8 @@
                             [ngClass]="{ 'is-invalid': f.income_net.errors && f.income_net.touched }" />
                         <div *ngIf="f.income_net.errors" class="invalid-feedback">
                             <div *ngIf="f.income_net.errors.required">{{this.fieldLabelen.income_net}} is required</div>
-
+                            <div *ngIf="f.income_net.errors.pattern">{{this.fieldLabelen.income_net}} is not valid
+                            </div>
                         </div>
                     </div>
                     <div class="form-group col-4">
@@ -515,9 +537,8 @@
                         <input type="text" formControlName="income_other" class="form-control"
                             [ngClass]="{ 'is-invalid': f.income_other.errors && f.income_other.touched }" />
                         <div *ngIf="f.income_other.errors" class="invalid-feedback">
-                            <div *ngIf="f.income_other.errors.required">{{this.fieldLabelen.income_other}} is required
+                            <div *ngIf="f.income_other.errors.pattern">{{this.fieldLabelen.income_other}} is not valid
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -529,7 +550,9 @@
                         <div *ngIf="f.monthly_expense.errors" class="invalid-feedback">
                             <div *ngIf="f.monthly_expense.errors.required">{{this.fieldLabelen.monthly_expense}} is
                                 required</div>
-
+                            <div *ngIf="f.monthly_expense.errors.pattern">{{this.fieldLabelen.monthly_expense}} is not
+                                valid
+                            </div>
                         </div>
                     </div>
                     <div class="form-group col-6">
@@ -539,7 +562,9 @@
                         <div *ngIf="f.adequate_income.errors" class="invalid-feedback">
                             <div *ngIf="f.adequate_income.errors.required">{{this.fieldLabelen.adequate_income}} is
                                 required</div>
-
+                            <div *ngIf="f.adequate_income.errors.pattern">{{this.fieldLabelen.adequate_income}} is not
+                                valid
+                            </div>
                         </div>
                     </div>
 
@@ -657,7 +682,15 @@
                                 <tr>
 
                                     <td>{{this.fieldLabelen.wish_income_mothly}}</td>
-                                    <td> <input type="text" formControlName="wish_income_mothly" class="form-control" />
+                                    <td>
+                                        <input type="text" formControlName="wish_income_mothly" class="form-control"
+                                            [ngClass]="{ 'is-invalid': f.wish_income_mothly.errors && f.wish_income_mothly.touched }"
+                                            maxlength="12" />
+                                        <div *ngIf="f.wish_income_mothly.errors" class="invalid-feedback">
+                                            <div *ngIf="f.wish_income_mothly.errors.pattern">
+                                                {{this.fieldLabelen.wish_income_mothly}} is not valid
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>

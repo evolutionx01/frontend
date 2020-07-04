@@ -24,6 +24,14 @@ const routes: Routes = [
       {
         path: 'team',
         loadChildren: () => import('./team/team.module').then(m => m.TeamModule)
+      },
+      {
+        path: 'health',
+        loadChildren: () => import('./health/health.module').then(m => m.HealthModule)
+      },
+      {
+        path: 'universalconcept',
+        loadChildren: () => import('./universal-concept/universal-concept.module').then(m => m.UniversalConceptModule)
       }
     ]
   },

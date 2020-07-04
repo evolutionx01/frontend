@@ -1,0 +1,94 @@
+<div class="page_banner">
+    <div class="container">
+        <h2>AK UNIVERSAL CONCEPT</h2>
+    </div>
+</div>
+
+<section class="about">
+    <div class="container">
+
+        <div class="desc">
+            <h2>The businessman who looketh into the interest of others as his own his business will expand</h2>
+            <div class="content">
+                <p>Life is a war. The Almighty has put us in the war field.</p>
+                <p>Be Alert! Protect yourself.</p>
+                <p>Life means, there must be a goal and must be aggressive in achieving it.</p>
+                <p>If learning, learned it aggressively.</p>
+                <p>Even if it is a game, play it aggressively,</p>
+                <p>Those who don’t have aim is better to die early As they are useless.</p>
+                <p>Remember that you are the master.</p>
+                <p>Do what you feel. Don’t listen to the negative people.</p>
+                <p>Especially the pessimist. If your target is 10th mile, then aim for 11th mile.</p>
+                <p>Block the mind of a pessimist in one bang to avoid interrupting your aim.</p>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
+<section class="emp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="../../../assets/training.jpg" alt="ak Universal Concept" class="img-fluid" />
+            </div>
+            <div class="col-md-6">
+                <div class="sec-title">
+                    <h2>THE DIFFERENCE IN EMPLOYMENT </h2>
+                </div>
+                <div class="desc">
+                    <p>No racial segregation as we practice universal concept</p>
+
+                    <p>No bias in promotion as we implement performance basis</p>
+
+                    <p>No discrimination as we regard all our employees as a team</p>
+
+                    <p>No sabotage as we care and love our employees as a family member </p>
+
+                    <h5>No hanky-panky business as we are professional</h5>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="join">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 quotes">
+                <h4>WHO SHOULD JOIN US? <span class="highlight">OPTIMIST & IGNORANCE</span> </h4>
+
+                <h5 class="mb-4">WHO SHOULD NOT JOIN US? <span class="highlight">PESSIMIST & LOSER</span> </h5>
+
+                <h2>NOBODY PLAN TO FAIL BUT MANY FAIL TO PLAN SO PLAN YOUR LIFE AND LIVE YOUR LIFE AS LIFE IS WHAT
+
+                    <br> <span class="highlight">WE MAKE IT</span></h2>
+            </div>
+            <div class="col-md-12 pt-4">
+                <div class="my-2 text-center">
+                    <button routerLink="/register" class="btn btn-custom mb-2 mr-2">Join Us</button>
+                    <p class="text-center mb-0">so, you are invited to join us to be a realist</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let image of albumArr; let i=index">
+                <div class="card mb-4 px-2 py-2">
+                    <img class="img-fluid" [src]="image.thumb" [alt]="image.caption" (click)="open(i)" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>

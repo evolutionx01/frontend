@@ -22,6 +22,7 @@
     "@angular/router": "~9.1.7",
     "@angular/youtube-player": "^9.2.4",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
+    "angularx-social-login": "^3.0.1",
     "bootstrap": "^4.4.0",
     "jquery": "^3.5.1",
     "ngx-lightbox": "^2.1.2",

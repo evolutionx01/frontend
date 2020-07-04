@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   private array: [{}];
-  constructor() {
+  constructor(
+    // private authService: SocialAuthService
+  ) {
    }
 
   ngOnInit(): void {
@@ -22,5 +25,17 @@ export class HeaderComponent implements OnInit {
       console.log(element);
     });
   }
+
+  // signInWithGoogle(): void {
+  //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+  //     x => {
+  //       this.signInWithGoogleData(x)
+  //     }
+  //   );
+  // }
+
+  // private signInWithGoogleData(data){
+  //   console.log(data)
+  // }
 
 }

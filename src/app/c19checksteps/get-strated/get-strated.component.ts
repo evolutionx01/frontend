@@ -34,4 +34,12 @@ export class GetStratedComponent implements OnInit {
   public register() {
     this.router.navigate(['/register']);
   }
+
+  public redirect(data){
+    if (data === 'health'){
+      this.router.navigate(['/health']);
+    } else if (data === 'concept'){
+      this.router.navigate(['/universalconcept']);
+    }
+  }
 }
