@@ -16,9 +16,9 @@ export class AboutusViewComponent implements OnInit {
   ) {
 
     for (let i = 1; i <= 7; i++) {
-      const src = '../../../assets/gallery' + i + '.png';
+      const src = '../../../assets/gallery' + i + '.jpg';
       const caption = this.caption[i];
-      const thumb = '../../../assets/gallery' + i + '.png';
+      const thumb = '../../../assets/gallery' + i + '.jpg';
       const album = {
          src,
          caption,

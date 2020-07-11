@@ -39,8 +39,47 @@ export class MembershipComponent implements OnInit {
   time: NgbTimeStruct;
   registerForm: FormGroup;
   url: any = '';
+  public weekdays = [
+    {text: 'Sunday', value: 'sunday'},
+    {text: 'Monday', value: 'monday'},
+    {text: 'Tuesday', value: 'tuesday'},
+    {text: 'Wednesday', value: 'wednesday'},
+    {text: 'Thursday', value: 'thursday'},
+    {text: 'Friday', value: 'friday'},
+    {text: 'Saturday', value: 'saturday'}
+  ];
+  public mStatus = [
+    {text: 'Married', value: 'married'},
+    {text: 'Single', value: 'single'},
+  ];
+  public genderOption = [
+    {text: 'Male', value: 'male'},
+    {text: 'Female', value: 'female'},
+  ];
+  public universalOption = [
+    {text: 'National (Native)', value: 'national'},
+    {text: 'Citizen (Immigrant)', value: 'citizen'},
+  ];
+  public educationalOption = [
+    {text: 'Primary', value: 'primary'},
+    {text: 'Secondary', value: 'sec'},
+    {text: 'Higher', value: 'hig'},
+    {text: 'Institute', value: 'inst'},
+    {text: 'College', value: 'coll'},
+    {text: 'University', value: 'uni'}
+  ];
+  public typeOption = [
+    {text: 'Business', value: 'business'},
+    {text: 'Employment', value: 'employment'},
+  ];
+  public statusOption = [
+    {text: 'Not Good', value: 'notgood'},
+    {text: 'Simple', value: 'simple'},
+    {text: 'Well', value: 'well'},
+    {text: 'Perfect', value: 'perfect'},
+  ];
   public fieldLabelen = {
-    name: 'Official Name',
+    name: 'Official Name (As In NRIC)',
     birth_date: 'Birth Date',
     birth_day: 'Birth Day',
     birth_time: 'Birth Time',
@@ -64,7 +103,7 @@ export class MembershipComponent implements OnInit {
     address: 'Current Home Address',
     town: 'Town',
     state: 'State',
-    postal_code: 'Post Code',
+    postal_code: 'Postcode',
     birth_place: 'Place of Birth',
     birth_town: 'Birth Town',
     language_title: 'Language Proficiency',
@@ -74,11 +113,11 @@ export class MembershipComponent implements OnInit {
     th_writing: 'Writing',
     economic_title: 'Economic Status',
     economic_type: 'Economic Type',
-    economic_Business_type: 'Economic Business Type',
+    economic_Business_type: 'Sole Proprietor or Partner (If do business)',
     income_gross: 'Gross Monthly Income',
     income_net: 'Nett Monthly Income',
     income_other: 'Other Income',
-    employee_position: 'Position If Employee',
+    employee_position: 'Position (If Employee)',
     business_type: 'Type of Business',
     monthly_expense: 'Current Monthly Expenses',
     adequate_income: 'Adequate Income Monthly',
@@ -87,14 +126,23 @@ export class MembershipComponent implements OnInit {
     financial: 'Financial',
     hapiness: 'Hapiness',
     leadership: 'Leadership',
-    wish_economic_type: 'Economic Type',
+    wish_economic_type: 'Employment / Business',
     wish_income_mothly: 'Monthly Income',
     wish_type_business: 'Type of business',
     wish_type_employment: 'Type of Employment',
     wish_aim: 'Aim',
     wish_title: 'Wish',
-    status_title: 'Life Status Now'
+    status_title: 'Life Status Now',
+    upload_photo: 'Upload Photo',
+    choose_file: 'Choose File',
+    browse : 'Browse'
     };
+    public proficiencyOption = [
+      {text: 'Fluent', value: 'fluent'},
+      {text: 'Average', value: 'average'},
+      {text: 'Weak', value: 'weak'},
+      {text: 'Ignorance', value: 'ignorance'}
+    ];
   public selectedLanguage = 'en';
   public title = 'Member Application Form';
   constructor(
@@ -122,9 +170,55 @@ export class MembershipComponent implements OnInit {
     console.log(newValue);
     this.selectedLanguage = newValue;
     if (newValue === 'en'){
+     this.registerForm.reset();
      this.title = 'Member Application Form';
+     this.weekdays = [
+      {text: 'Sunday', value: 'sunday'},
+      {text: 'Monday', value: 'monday'},
+      {text: 'Tuesday', value: 'tuesday'},
+      {text: 'Wednesday', value: 'wednesday'},
+      {text: 'Thursday', value: 'thursday'},
+      {text: 'Friday', value: 'friday'},
+      {text: 'Saturday', value: 'saturday'}
+    ];
+     this.mStatus = [
+      {text: 'Married', value: 'married'},
+      {text: 'Single', value: 'single'},
+    ];
+     this.genderOption = [
+      {text: 'Male', value: 'male'},
+      {text: 'Female', value: 'female'},
+    ];
+     this.universalOption = [
+      {text: 'National (Native)', value: 'national'},
+      {text: 'Citizen (Immigrant)', value: 'citizen'},
+    ];
+     this.educationalOption = [
+      {text: 'Primary', value: 'primary'},
+      {text: 'Secondary', value: 'sec'},
+      {text: 'Higher', value: 'hig'},
+      {text: 'Institute', value: 'inst'},
+      {text: 'College', value: 'coll'},
+      {text: 'University', value: 'uni'}
+    ];
+     this.proficiencyOption = [
+      {text: 'Fluent', value: 'fluent'},
+      {text: 'Average', value: 'average'},
+      {text: 'Weak', value: 'weak'},
+      {text: 'Ignorance', value: 'ignorance'}
+    ];
+     this.typeOption = [
+      {text: 'Business', value: 'business'},
+      {text: 'Employment', value: 'employment'},
+    ];
+     this.statusOption = [
+      {text: 'Not Good', value: 'notgood'},
+      {text: 'Simple', value: 'simple'},
+      {text: 'Well', value: 'well'},
+      {text: 'Perfect', value: 'perfect'},
+    ];
      this.fieldLabelen = {
-      name: 'Official Name',
+      name: 'Official Name (As In NRIC)',
       birth_date: 'Birth Date',
       birth_day: 'Birth Day',
       birth_time: 'Birth Time',
@@ -148,7 +242,7 @@ export class MembershipComponent implements OnInit {
       address: 'Current Home Address',
       town: 'Town',
       state: 'State',
-      postal_code: 'Post Code',
+      postal_code: 'Postcode',
       birth_place: 'Place of Birth',
       birth_town: 'Birth Town',
       language_title: 'Language Proficiency',
@@ -158,11 +252,11 @@ export class MembershipComponent implements OnInit {
       th_writing: 'Writing',
       economic_title: 'Economic Status',
       economic_type: 'Economic Type',
-      economic_Business_type: 'Economic Business Type',
+      economic_Business_type: 'Sole Proprietor or Partner (If do business)',
       income_gross: 'Gross Monthly Income',
       income_net: 'Nett Monthly Income',
       income_other: 'Other Income',
-      employee_position: 'Position If Employee',
+      employee_position: 'Position (If Employee)',
       business_type: 'Type of Business',
       monthly_expense: 'Current Monthly Expenses',
       adequate_income: 'Adequate Income Monthly',
@@ -171,72 +265,231 @@ export class MembershipComponent implements OnInit {
       financial: 'Financial',
       hapiness: 'Hapiness',
       leadership: 'Leadership',
-      wish_economic_type: 'Economic Type',
+      wish_economic_type: 'Employment / Business',
       wish_income_mothly: 'Monthly Income',
       wish_type_business: 'Type of business',
       wish_type_employment: 'Type of Employment',
       wish_aim: 'Aim',
       wish_title: 'Wish',
-      status_title: 'Life Status Now'
-      };
+      status_title: 'Life Status Now',
+      upload_photo: 'Upload Photo',
+      choose_file: 'Choose File',
+      browse : 'Browse'
+     };
     }else if (newValue === 'ma'){
-      this.title = 'Borang Permohonan Ahli';
+      this.registerForm.reset();
+      this.title = 'Borang Permohonan Ahli / Member Application Form';
+      this.weekdays = [
+        {text: 'Ahad / Sunday', value: 'sunday'},
+        {text: 'isnin / Monday', value: 'monday'},
+        {text: 'masanya / Tuesday', value: 'tuesday'},
+        {text: 'Rabu / Wednesday', value: 'wednesday'},
+        {text: 'Khamis / Thursday', value: 'thursday'},
+        {text: 'Jumaat / Friday', value: 'friday'},
+        {text: 'Sabtu / Sunday', value: 'saturday'}
+      ];
+      this.mStatus = [
+        {text: 'Berkahwin / Married', value: 'married'},
+        {text: 'Bujang / Single', value: 'single'},
+      ];
+      this.genderOption = [
+        {text: 'Lelaki / Male', value: 'male'},
+        {text: 'Perempuan / Female', value: 'female'},
+      ];
+      this.universalOption = [
+        {text: 'Nasional (Kelahiran Tanah Air) / National (Native)', value: 'national'},
+        {text: 'Warganegara (Pendatang) / Citizen (Immigrant)', value: 'citizen'},
+      ];
+      this.educationalOption = [
+        {text: 'Rendah / Primary', value: 'primary'},
+        {text: 'Menengah / Secondary', value: 'sec'},
+        {text: 'Tinggi / Higher', value: 'hig'},
+        {text: 'Institut / Institute', value: 'inst'},
+        {text: 'Kolej / College', value: 'coll'},
+        {text: 'Universiti / University', value: 'uni'}
+      ];
+      this.proficiencyOption = [
+        {text: 'Fasih / Fluent', value: 'fluent'},
+        {text: 'Sederhana / Average', value: 'average'},
+        {text: 'Lemah / Weak', value: 'weak'},
+        {text: 'Kejahilan / Ignorance', value: 'ignorance'}
+      ];
+      this.typeOption = [
+        {text: 'Berniaga / Business', value: 'business'},
+        {text: 'Bekerja / Employment', value: 'employment'},
+      ];
+      this.statusOption = [
+        {text: 'Kurang Baik / Not Good', value: 'notgood'},
+        {text: 'Sederhana / Simple', value: 'simple'},
+        {text: 'Baik / Well', value: 'well'},
+        {text: 'Sempurna / Perfect', value: 'perfect'},
+      ];
       this.fieldLabelen = {
-        name: 'Nama Rasmi',
-        birth_date: 'Tarikh lahir',
-        birth_day: 'hari kelahiran',
-        birth_time: 'masa kelahiran',
-        NRIC_new: 'No. KPPN (New)',
-        NRIC_old: 'No. KPPN (Old)',
-        marital_status: 'Taraf Perkahwinan',
-        gender: 'Jantina',
-        age: 'Umur',
-        mobile: 'No. Talian Mobil Peribadi',
-        whatsapp: 'No. WhatsApp',
-        birth_religion: 'Agama asal',
-        current_religion: 'Bahasa Ibunda',
-        mother_tongue: 'Bahasa Ibunda :',
-        universal_status: 'Taraf Alam',
-        continent: 'Benua',
-        descendant: 'Keturunan',
-        Education_level: 'Taraf Pendidikan',
-        email: 'Emel',
+        name: 'Nama Rasmi (seperti di kad pengenalan) / Official Name (As In NRIC)',
+        birth_date: 'Tarikh Kelahiran / Birth Date',
+        birth_day: 'Hari kelahiran / Birth Day',
+        birth_time: 'Waktu Kelahiran / Birth Time',
+        NRIC_new: 'No. KPPN (Baharu) / NRIC No. (New)',
+        NRIC_old: 'No. KPPN (Lama) / NRIC No. (Old)',
+        marital_status: 'Taraf Perkahwinan / Marital Status',
+        gender: 'Jantina / Gender',
+        age: 'Umur / Age',
+        mobile: 'No. Telefon Bimbit Peribadi / Personal Mobile No.',
+        whatsapp: 'No. WhatsApp / Whatsapp No.',
+        birth_religion: 'Agama asal / Birth Religion',
+        current_religion: 'Agama Kini / Current Religion',
+        mother_tongue: 'Bahasa Ibunda / Mother Tongue',
+        universal_status: 'Taraf Alam / Universal Status',
+        continent: 'Benua / Continent',
+        descendant: 'Keturunan / Descendant',
+        Education_level: 'Taraf Pendidikan / Education Level',
+        email: 'E-mel / Email',
         fb: 'FB',
         twitter: 'Twitter',
-        address: 'Alamat Kediaman Terkini',
-        town: 'Bandar',
-        state: 'Negeri',
-        postal_code: 'Negeri',
-        birth_place: 'Berasal dari Negeri / Negara ( Tempat Lahir )',
-        birth_town: 'Bandar Lahir',
-        language_title: 'Kemahiran Bahasa',
-        th_title: 'Bahasa',
-        th_spoken: 'BERTUTUR',
-        th_reading: 'MEMBACA',
-        th_writing: 'MENULIS',
+        address: 'Alamat Kediaman Terkini / Current Home Address',
+        town: 'Bandar / Town',
+        state: 'Negeri / State',
+        postal_code: 'Poskod / Postcode',
+        birth_place: 'Berasal dari Negeri / Negara ( Tempat Lahir ) / Place of Birth',
+        birth_town: 'Bandar Kelahiran / Birth Town',
+        language_title: 'Penguasaan Bahasa / Language Proficiency',
+        th_title: 'Bahasa / Language',
+        th_spoken: 'BERTUTUR / Spoken',
+        th_reading: 'MEMBACA / Reading',
+        th_writing: 'MENULIS / Writing',
         economic_title: 'Status Ekonomi',
-        economic_type: 'Bekerja atau Berniaga',
-        economic_Business_type: 'Tunggal atau Kongsi',
-        income_gross: 'Pendapatan Kasar Sebulan',
-        income_net: 'Pendapatan Bersih Sebulan',
-        income_other: 'Lain Lain Pendapatan',
-        employee_position: 'Jawatan ( Jika Pekerja )',
-        business_type: 'Jenis Perniagaan',
-        monthly_expense: 'Perbelanjaan Setiap bulan pada masa kini',
-        adequate_income: 'Pendapatan yang mencukupi ( Setiap Bulan )',
-        health: 'Kesihatan',
-        general_knowledge: 'Kesihatan',
-        financial: 'Kewangan',
-        hapiness: 'Kebahagian',
-        leadership: 'Kepimpinan',
-        wish_economic_type: 'Bekerja / Berniaga atau',
-        wish_income_mothly: 'Pendapatan Sebulan',
-        wish_type_business: 'Jenis Perniagaan',
-        wish_type_employment: 'Jenis Pekerjaan',
-        wish_aim: 'Berazam',
-        wish_title: 'Hasrat',
-        status_title: 'Status Kehidupan Pada Masa Kini'
+        economic_type: 'Bekerja atau Berniaga / Economic Type',
+        economic_Business_type: 'Pemilikan Tunggal atau Rakan Kongsi (Jika Berniaga) / Sole Proprietor or Partner (If do business).',
+        income_gross: 'Pendapatan Kasar Sebulan / Gross Monthly Income',
+        income_net: 'Pendapatan Bersih Sebulan / Nett Monthly Income',
+        income_other: 'Lain Lain Pendapatan / Other Income',
+        employee_position: 'Jawatan (Sekiranya anda seorang pekerja) / Position (If Employee)',
+        business_type: 'Jenis Perniagaan / Type of Business',
+        monthly_expense: 'Perbelanjaan Setiap bulan pada masa kini / Current Monthly Expenses',
+        adequate_income: 'Pendapatan yang mencukupi ( Setiap Bulan ) / Adequate Income Monthly',
+        health: 'Kesihatan / Health',
+        general_knowledge: 'Kesihatan / General Knowledge',
+        financial: 'Kewangan / Financial',
+        hapiness: 'Kebahagian / Hapiness',
+        leadership: 'Kepimpinan / Leadership',
+        wish_economic_type: 'Bekerja / Berniaga atau / Employment/ Business.',
+        wish_income_mothly: 'Pendapatan Sebulan / Monthly Income',
+        wish_type_business: 'Jenis Perniagaan / Type of business',
+        wish_type_employment: 'Jenis Pekerjaan / Type of Employment',
+        wish_aim: 'Berazam / Aim',
+        wish_title: 'Hasrat / Wish',
+        status_title: 'Status Kehidupan Pada Masa Kini / Life Status Now',
+        upload_photo: 'Muat Naik Gambar / Upload Photo',
+        choose_file: 'Pilih Fail / Choose File',
+        browse : 'Melayari / Browse'
         };
+    }else if (newValue === 'ch'){
+      this.registerForm.reset();
+      this.title = '會員 應用 形成 / Member Application Form';
+      this.weekdays = [
+        {text: '星期天 / Sunday', value: 'sunday'},
+        {text: '星期一 / Monday', value: 'monday'},
+        {text: '星期二 / Tuesday', value: 'tuesday'},
+        {text: '星期三 / Wednesday', value: 'wednesday'},
+        {text: '星期四 / Thursday', value: 'thursday'},
+        {text: '星期五 / Friday', value: 'friday'},
+        {text: '星期六 / Sunday', value: 'saturday'}
+      ];
+      this.mStatus = [
+        {text: '已婚 / Married', value: 'married'},
+        {text: '单身 / Single', value: 'single'},
+      ];
+      this.genderOption = [
+        {text: '男 / Male', value: 'male'},
+        {text: '女 / Female', value: 'female'},
+      ];
+      this.universalOption = [
+        {text: '国家（本地）/ National (Native)', value: 'national'},
+        {text: '公民（移民) / Citizen (Immigrant)', value: 'citizen'},
+      ];
+      this.proficiencyOption = [
+        {text: '流利程度 / Fluent', value: 'fluent'},
+        {text: '平均 / Average', value: 'average'},
+        {text: '弱 / Weak', value: 'weak'},
+        {text: '不知 / Ignorance', value: 'ignorance'}
+      ];
+      this.educationalOption = [
+        {text: '小学 / Primary', value: 'primary'},
+        {text: '中学 / Secondary', value: 'sec'},
+        {text: '高等教育 / Higher', value: 'hig'},
+        {text: '研究所 / Institute', value: 'inst'},
+        {text: '学院 / College', value: 'coll'},
+        {text: '大学 / University', value: 'uni'}
+      ];
+      this.typeOption = [
+        {text: '生意 / Business', value: 'business'},
+        {text: '雇佣 / Employment', value: 'employment'},
+      ];
+      this.statusOption = [
+        {text: '不好 / Not Good', value: 'notgood'},
+        {text: '简单 / Simple', value: 'simple'},
+        {text: '好 / Well', value: 'well'},
+        {text: '完美 / Perfect', value: 'perfect'},
+      ];
+      this.fieldLabelen = {
+        name: '姓名（与您的身份证相同）/ Official Name (As In NRIC)',
+        birth_date: '出生日期 / Birth Date',
+        birth_day: '生日 / Birth Day',
+        birth_time: '出生时间 / Birth Time',
+        NRIC_new: '身份证号码（新）/ NRIC No. (New)',
+        NRIC_old: '身份证号码（旧）/ NRIC No. (Old)',
+        marital_status: '婚姻状况 / Marital status',
+        gender: '性别 / Gender',
+        age: '年龄 / Age',
+        mobile: '个人手机号码 / Personal Mobile No.',
+        whatsapp: 'Whatsapp 号码 / WhatsApp No.',
+        birth_religion: '出生宗教 / Birth Religion',
+        current_religion: '当前宗教 / Current Religion',
+        mother_tongue: '母语 / Mother Tongue',
+        universal_status: '普遍地位 / Universal Status',
+        continent: '大陆 / Continent',
+        descendant: '后裔 / Descendant',
+        Education_level: '学历 / Education Level',
+        email: '电邮 / Email',
+        fb: '面子书 / FB',
+        twitter: '推特 / Twitter',
+        address: '当前家庭住址 / Current Home Address',
+        town: '城市 / Town',
+        state: '州 / State',
+        postal_code: '邮政编码 / Postcode',
+        birth_place: '出生地 / Place of Birth',
+        birth_town: '出生城市 / Birth Town',
+        language_title: '语言能力 / Language Proficiency',
+        th_title: '语言 / Language',
+        th_spoken: '会话 / Spoken',
+        th_reading: '阅读 / Reading',
+        th_writing: '写作 / Writing',
+        economic_title: 'Economic Status',
+        economic_type: '经济类型 / Economic Type',
+        economic_Business_type: '业务类型 / Sole Proprietor or Partner (If do business)',
+        income_gross: '每月总收入 / Gross Monthly Income',
+        income_net: '每月净收入 / Nett Monthly Income',
+        income_other: '其他的收入 / Other Income',
+        employee_position: '职位名称（如果您是员工）/ Position (If Employee)',
+        business_type: 'Type of Business',
+        monthly_expense: '当前每月费用 / Current Monthly Expenses',
+        adequate_income: '每月足够收入 / Adequate Income Monthly',
+        health: '健康 / Health',
+        general_knowledge: '基本知识 / General Knowledge',
+        financial: '金融 / Financial',
+        hapiness: '幸福程度 / Hapiness',
+        leadership: '领导能力 / Leadership',
+        wish_economic_type: '经济类型 / Employment / Business',
+        wish_income_mothly: '每月收入 / Monthly Income',
+        wish_type_business: '业务类型 / Type of business',
+        wish_type_employment: '工作类型 / Type of Employment',
+        wish_aim: '目标 / Aim',
+        wish_title: '愿望 / Wish',
+        status_title: '当前生活状态 / Life Status Now',
+        upload_photo: '上传照片 / Upload Photo',
+        choose_file: '选择文件 / Choose File',
+        browse : '浏览 / Browse'
+       };
     }
       // ... do other stuff here ...
   }
@@ -266,7 +519,6 @@ export class MembershipComponent implements OnInit {
   private memberDetails(data) {
     this.spinner.hide();
     console.log(data);
-    console.log(data);
     if (data.success){
       this.openConfirmationModal(this.confirmation);
     }
@@ -284,23 +536,6 @@ export class MembershipComponent implements OnInit {
         let base64 =  reader.result.toString();
 
         base64 = base64.split(';')[1].split(',')[1];
-
-        // const byteCharacters = atob(base64);
-        // const byteNumbers = new Array(byteCharacters.length);
-
-        // for (let i = 0; i < byteCharacters.length; i++){
-        //   byteNumbers[i] = byteCharacters.charCodeAt(i);
-        // }
-        // const byteArray = new Uint8Array(byteNumbers);
-
-        // const base64 =  reader.result.toString();
-        // base64.split(';')[0];
-        // const binarystring = window.atob(base64);
-        // const len = binarystring.length;
-        // const bytes = new Uint8Array(len);
-        // for (let i = 0; i < len; i++) {
-        //    bytes[i] = binarystring.charCodeAt(i);
-        // }
 
         this.registerForm.patchValue({
           file: base64
@@ -322,18 +557,18 @@ export class MembershipComponent implements OnInit {
       birth_time: [null, [Validators.required, Validators.pattern(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/)]],
       NRIC_new: [null, [Validators.required, Validators.maxLength(12), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
       NRIC_old: [null, Validators.pattern(/^-?(0|[1-9]\d*)?$/)],
-      marital_status: ['', Validators.required],
-      gender: ['', Validators.required],
-      age: [0, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-      mobile: [0, [Validators.required, Validators.pattern(/^-?([0-9]\d*)?$/)]],
-      whatsapp: [0, [Validators.required, Validators.pattern(/^-?([0-9]\d*)?$/)]],
+      marital_status: [null, Validators.required],
+      gender: [null, Validators.required],
+      age: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+      mobile: [null, [Validators.required, Validators.pattern(/^-?([0-9]\d*)?$/)]],
+      whatsapp: [null, [Validators.required, Validators.pattern(/^-?([0-9]\d*)?$/)]],
       birth_religion: ['', Validators.required],
       current_religion: ['', Validators.required],
       mother_tongue: ['', Validators.required],
-      universal_status: ['', Validators.required],
+      universal_status: [null, Validators.required],
       continent: ['', Validators.required],
       descendant: ['', Validators.required],
-      Education_level: ['', Validators.required],
+      Education_level: [null, Validators.required],
       email: ['', [Validators.required, Validators.email]],
       fb: [''],
       twitter: [''],
@@ -343,19 +578,19 @@ export class MembershipComponent implements OnInit {
       postal_code: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
       birth_place: ['', Validators.required],
       birth_town: ['', Validators.required],
-      malay_spoken: [''],
-      malay_reading: [''],
-      malay_writting: [''],
-      eng_spoken: [''],
-      eng_reading: [''],
-      eng_writting: [''],
-      chinees_spoken: [''],
-      chinees_reading: [''],
-      chinees_writting: [''],
-      tamil_spoken: [''],
-      tamil_reading: [''],
-      tamil_writting: [''],
-      economic_type: ['', Validators.required],
+      malay_spoken: [null],
+      malay_reading: [null],
+      malay_writting: [null],
+      eng_spoken: [null],
+      eng_reading: [null],
+      eng_writting: [null],
+      chinees_spoken: [null],
+      chinees_reading: [null],
+      chinees_writting: [null],
+      tamil_spoken: [null],
+      tamil_reading: [null],
+      tamil_writting: [null],
+      economic_type: [null, Validators.required],
       employee_position: [''],
       business_type: [''],
       economic_Business_type: [''],
@@ -364,11 +599,11 @@ export class MembershipComponent implements OnInit {
       income_other: [null, Validators.pattern(/^-?(0|[1-9]\d*)?$/)],
       monthly_expense: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
       adequate_income: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-      health: ['', Validators.required],
-      general_knowledge: ['', Validators.required],
-      financial: ['', Validators.required],
-      hapiness: ['', Validators.required],
-      leadership: ['', Validators.required],
+      health: [null, Validators.required],
+      general_knowledge: [null, Validators.required],
+      financial: [null, Validators.required],
+      hapiness: [null, Validators.required],
+      leadership: [null, Validators.required],
       wish_economic_type: [''],
       wish_income_mothly: [null, Validators.pattern(/^-?(0|[1-9]\d*)?$/)],
       wish_type_business: [''],

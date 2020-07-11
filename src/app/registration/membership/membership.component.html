@@ -13,7 +13,7 @@
                                 (ngModelChange)="onChange($event)" name="sel2">
                                 <option value="en">English</option>
                                 <option value="ma">Malay</option>
-                                <!-- <option value="ch">Chinese</option> -->
+                                <option value="ch">Chinese</option>
                             </select>
                         </div>
 
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-4">
+                        <div class="form-group col-md-4 col-sm-12">
                             <label>{{this.fieldLabelen.birth_date}}<span class="text-danger">*</span></label>
                             <div class="input-group"
                                 [ngClass]="{ 'is-invalid': f.birth_date.errors && f.birth_date.touched }">
@@ -57,24 +57,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-4">
+                        <div class="form-group col-md-4 col-sm-12">
                             <label>{{this.fieldLabelen.birth_day}}<span class="text-danger">*</span></label>
                             <select formControlName="birth_day" class="form-control"
                                 [ngClass]="{ 'is-invalid': f.birth_day.errors && f.birth_day.touched }">
-                                <option value="sunday">Sunday</option>
-                                <option value="monday">Monday</option>
-                                <option value="tuesday">Tuesday</option>
-                                <option value="wednesday">Wednesday</option>
-                                <option value="thursday">Thursday</option>
-                                <option value="friday">Friday</option>
-                                <option value="saturday">Saturday</option>
+                                <option *ngFor="let day of weekdays" value="{{day.value}}">{{day.text}}</option>
                             </select>
                             <div *ngIf="f.birth_day.errors" class="invalid-feedback">
                                 <div *ngIf="f.birth_day.errors.required">{{this.fieldLabelen.birth_day}} is required
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-4">
+                        <div class="form-group col-md-4 col-sm-12">
                             <label>{{this.fieldLabelen.birth_time}}<span class="text-danger">* </span>
                                 <small>(Example 14:00)</small></label>
 
@@ -90,7 +84,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-6">
+                        <div class="form-group col-md-6 col-sm-12">
                             <label>{{this.fieldLabelen.NRIC_new}}<span class="text-danger">*</span></label>
                             <input type="text" formControlName="NRIC_new" class="form-control"
                                 [ngClass]="{ 'is-invalid': f.NRIC_new.errors && f.NRIC_new.touched }" maxlength="12" />
@@ -102,7 +96,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-md-6 col-sm-12">
                             <label>{{this.fieldLabelen.NRIC_old}}</label>
                             <input type="text" formControlName="NRIC_old" class="form-control"
                                 [ngClass]="{ 'is-invalid': f.NRIC_old.errors && f.NRIC_old.touched }" maxlength="12" />
@@ -115,31 +109,28 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-4">
+                        <div class="form-group col-md-4 col-sm-12">
                             <label>{{this.fieldLabelen.marital_status}}<span class="text-danger">*</span></label>
                             <select formControlName="marital_status" class="form-control"
                                 [ngClass]="{ 'is-invalid': f.marital_status.errors && f.marital_status.touched }">
-                                <option value="married">Married</option>
-                                <option value="single">Single</option>
+                                <option *ngFor="let data of mStatus" value="{{data.value}}">{{data.text}}</option>
                             </select>
                             <div *ngIf="f.marital_status.errors" class="invalid-feedback">
                                 <div *ngIf="f.marital_status.errors.required">{{this.fieldLabelen.marital_status}} is
                                     required</div>
                             </div>
                         </div>
-                        <div class="form-group col-4">
+                        <div class="form-group col-md-4 col-sm-12">
                             <label>{{this.fieldLabelen.gender}}<span class="text-danger">*</span></label>
                             <select formControlName="gender" class="form-control"
                                 [ngClass]="{ 'is-invalid': f.gender.errors && f.gender.touched }">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="transgender">Transgender</option>
+                                <option *ngFor="let data of genderOption" value="{{data.value}}">{{data.text}}</option>
                             </select>
                             <div *ngIf="f.gender.errors" class="invalid-feedback">
                                 <div *ngIf="f.gender.errors.required">{{this.fieldLabelen.gender}} is required</div>
                             </div>
                         </div>
-                        <div class="form-group col-4">
+                        <div class="form-group col-md-4 col-sm-12">
                             <label>{{this.fieldLabelen.age}}<span class="text-danger">*</span></label>
                             <input type="text" formControlName="age" class="form-control"
                                 [ngClass]="{ 'is-invalid': f.age.errors && f.age.touched }" maxlength="3" />
@@ -153,11 +144,12 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label>Upload Photo<span class="text-danger">*</span></label>
+                        <label>{{this.fieldLabelen.upload_photo}}<span class="text-danger">*</span></label>
                         <div class="custom-file">
                             <input type="file" (change)="fileChange($event)" class="form-control custom-file-input"
                                 id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="form-control custom-file-label" for="inputGroupFile01">Choose file<span
+                            <label class="form-control custom-file-label"
+                                for="inputGroupFile01">{{this.fieldLabelen.choose_file}}<span
                                     class="text-danger">*</span></label>
                         </div>
                     </div>
@@ -172,7 +164,7 @@
 
 
             <div class="form-row">
-                <div class="form-group col-6">
+                <div class="form-group col-md-6 col-sm-12">
                     <label>{{this.fieldLabelen.whatsapp}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="whatsapp" class="form-control"
                         [ngClass]="{ 'is-invalid': f.whatsapp.errors && f.whatsapp.touched }" maxlength="12" />
@@ -182,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-6">
+                <div class="form-group col-md-6 col-sm-12">
                     <label>{{this.fieldLabelen.mobile}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="mobile" class="form-control"
                         [ngClass]="{ 'is-invalid': f.mobile.errors && f.mobile.touched }" maxlength="12" />
@@ -195,7 +187,7 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.birth_religion}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="birth_religion" class="form-control"
                         [ngClass]="{ 'is-invalid': f.birth_religion.errors && f.birth_religion.touched }" />
@@ -205,7 +197,7 @@
 
                     </div>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.current_religion}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="current_religion" class="form-control"
                         [ngClass]="{ 'is-invalid': f.current_religion.errors && f.current_religion.touched }" />
@@ -215,7 +207,7 @@
 
                     </div>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.mother_tongue}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="mother_tongue" class="form-control"
                         [ngClass]="{ 'is-invalid': f.mother_tongue.errors && f.mother_tongue.touched }" />
@@ -226,12 +218,11 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.universal_status}}<span class="text-danger">*</span></label>
                     <select formControlName="universal_status" class="form-control"
                         [ngClass]="{ 'is-invalid': f.universal_status.errors && f.universal_status.touched }">
-                        <option value="national">National (Native)</option>
-                        <option value="citizen">Citizen (Immigrant)</option>
+                        <option *ngFor="let data of universalOption" value="{{data.value}}">{{data.text}}</option>
                     </select>
                     <div *ngIf="f.universal_status.errors" class="invalid-feedback">
                         <div *ngIf="f.universal_status.errors.required">{{this.fieldLabelen.universal_status}} is
@@ -239,7 +230,7 @@
 
                     </div>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.continent}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="continent" class="form-control"
                         [ngClass]="{ 'is-invalid': f.continent.errors && f.continent.touched }" />
@@ -248,7 +239,7 @@
 
                     </div>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.descendant}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="descendant" class="form-control"
                         [ngClass]="{ 'is-invalid': f.descendant.errors && f.descendant.touched }" />
@@ -262,12 +253,7 @@
                 <label>{{this.fieldLabelen.Education_level}}<span class="text-danger">*</span></label>
                 <select formControlName="Education_level" class="form-control"
                     [ngClass]="{ 'is-invalid': f.Education_level.errors && f.Education_level.touched }">
-                    <option value="rendah">Rendah </option>
-                    <option value="menengah">Menengah </option>
-                    <option value="tinggi">Tinggi </option>
-                    <option value="institut">Institut </option>
-                    <option value="kolej">Kolej </option>
-                    <option value="universiti">Universiti</option>
+                    <option *ngFor="let data of educationalOption" value="{{data.value}}">{{data.text}}</option>
                 </select>
                 <div *ngIf="f.Education_level.errors" class="invalid-feedback">
                     <div *ngIf="f.Education_level.errors.required">{{this.fieldLabelen.Education_level}} is required
@@ -276,7 +262,7 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.email}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="email" class="form-control"
                         [ngClass]="{ 'is-invalid': f.email.errors && f.email.touched }" />
@@ -286,11 +272,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.fb}}</label>
                     <input type="text" formControlName="fb" class="form-control" />
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.twitter}}</label>
                     <input type="text" formControlName="twitter" class="form-control" />
                 </div>
@@ -307,7 +293,7 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.town}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="town" class="form-control"
                         [ngClass]="{ 'is-invalid': f.town.errors && f.town.touched }" />
@@ -316,7 +302,7 @@
 
                     </div>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.state}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="state" class="form-control"
                         [ngClass]="{ 'is-invalid': f.state.errors && f.state.touched }" />
@@ -325,7 +311,7 @@
 
                     </div>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-md-4 col-sm-12">
                     <label>{{this.fieldLabelen.postal_code}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="postal_code" class="form-control"
                         [ngClass]="{ 'is-invalid': f.postal_code.errors && f.postal_code.touched }" />
@@ -338,7 +324,7 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-6">
+                <div class="form-group col-md-6 col-sm-12">
                     <label>{{this.fieldLabelen.birth_place}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="birth_place" class="form-control"
                         [ngClass]="{ 'is-invalid': f.birth_place.errors && f.birth_place.touched }" />
@@ -347,7 +333,7 @@
 
                     </div>
                 </div>
-                <div class="form-group col-6">
+                <div class="form-group col-md-6 col-sm-12">
                     <label>{{this.fieldLabelen.birth_town}}<span class="text-danger">*</span></label>
                     <input type="text" formControlName="birth_town" class="form-control"
                         [ngClass]="{ 'is-invalid': f.birth_town.errors && f.birth_town.touched }" />
@@ -373,26 +359,23 @@
                         <tr>
                             <td>Malay</td>
                             <td><select formControlName="malay_spoken" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
                             <td><select formControlName="malay_reading" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
                             <td><select formControlName="malay_writting" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
@@ -400,26 +383,23 @@
                         <tr>
                             <td>English</td>
                             <td><select formControlName="eng_spoken" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
                             <td><select formControlName="eng_reading" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
                             <td><select formControlName="eng_writting" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
@@ -427,26 +407,23 @@
                         <tr>
                             <td>Chinese</td>
                             <td><select formControlName="chinees_spoken" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
                             <td><select formControlName="chinees_reading" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
                             <td><select formControlName="chinees_writting" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
@@ -454,26 +431,23 @@
                         <tr>
                             <td>Tamil</td>
                             <td><select formControlName="tamil_spoken" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
                             <td><select formControlName="tamil_reading" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
                             <td><select formControlName="tamil_writting" class="form-control">
-                                    <option value="fluent">Fluent</option>
-                                    <option value="average">Average</option>
-                                    <option value="weak">Weak</option>
-                                    <option value="ignorance">Ignorance</option>
+                                    <option value="none">NA</option>
+                                    <option *ngFor="let data of proficiencyOption" value="{{data.value}}">{{data.text}}
+                                    </option>
                                 </select>
 
                             </td>
@@ -483,12 +457,12 @@
             </div>
             <div class="form-group boxview">
                 <div class="form-row ">
-                    <div class="form-group col-3">
+                    <div class="form-group col-md-6 col-sm-12">
                         <label>{{this.fieldLabelen.economic_type}}<span class="text-danger">*</span></label>
                         <select formControlName="economic_type" class="form-control"
                             [ngClass]="{ 'is-invalid': f.economic_type.errors && f.economic_type.touched }">
-                            <option value="business">Business</option>
-                            <option value="employment">Employment</option>
+                            <option *ngFor="let data of typeOption" value="{{data.value}}">{{data.text}}
+                            </option>
                         </select>
                         <div *ngIf="f.economic_type.errors" class="invalid-feedback">
                             <div *ngIf="f.economic_type.errors.required">{{this.fieldLabelen.economic_type}} is required
@@ -496,22 +470,22 @@
 
                         </div>
                     </div>
-                    <div class="form-group col-3">
+                    <div class="form-group col-md-6 col-sm-12">
                         <label>{{this.fieldLabelen.employee_position}}</label>
                         <input type="text" formControlName="employee_position" class="form-control" />
                     </div>
-                    <div class="form-group col-3">
+                    <div class="form-group col-md-6 col-sm-12">
                         <label>{{this.fieldLabelen.business_type}}</label>
                         <input type="text" formControlName="business_type" class="form-control" />
                     </div>
-                    <div class="form-group col-3">
+                    <div class="form-group col-md-6 col-sm-12">
                         <label>{{this.fieldLabelen.economic_Business_type}}</label>
                         <input type="text" formControlName="economic_Business_type" class="form-control" />
                     </div>
 
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-4">
+                    <div class="form-group col-md-6 col-sm-12">
                         <label>{{this.fieldLabelen.income_gross}}<span class="text-danger">*</span></label>
                         <input type="text" formControlName="income_gross" class="form-control"
                             [ngClass]="{ 'is-invalid': f.income_gross.errors && f.income_gross.touched }" />
@@ -522,7 +496,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-md-6 col-sm-12">
                         <label>{{this.fieldLabelen.income_net}}<span class="text-danger">*</span></label>
                         <input type="text" formControlName="income_net" class="form-control"
                             [ngClass]="{ 'is-invalid': f.income_net.errors && f.income_net.touched }" />
@@ -532,7 +506,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-md-12 col-sm-12">
                         <label>{{this.fieldLabelen.income_other}}<span class="text-danger">*</span></label>
                         <input type="text" formControlName="income_other" class="form-control"
                             [ngClass]="{ 'is-invalid': f.income_other.errors && f.income_other.touched }" />
@@ -543,7 +517,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6 col-sm-12">
                         <label>{{this.fieldLabelen.monthly_expense}}<span class="text-danger">*</span></label>
                         <input type="text" formControlName="monthly_expense" class="form-control"
                             [ngClass]="{ 'is-invalid': f.monthly_expense.errors && f.monthly_expense.touched }" />
@@ -555,7 +529,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6 col-sm-12">
                         <label>{{this.fieldLabelen.adequate_income}}<span class="text-danger">*</span></label>
                         <input type="text" formControlName="adequate_income" class="form-control"
                             [ngClass]="{ 'is-invalid': f.adequate_income.errors && f.adequate_income.touched }" />
@@ -583,10 +557,9 @@
                                     <td>{{this.fieldLabelen.health}}<span class="text-danger">*</span></td>
                                     <td><select formControlName="health" class="form-control"
                                             [ngClass]="{ 'is-invalid': f.health.errors && f.health.touched }">
-                                            <option value="not_good">Not Good</option>
-                                            <option value="simple">Simple</option>
-                                            <option value="well">Well</option>
-                                            <option value="perfect">Perfect</option>
+                                            <option *ngFor="let data of statusOption" value="{{data.value}}">
+                                                {{data.text}}
+                                            </option>
                                         </select>
                                         <div *ngIf="f.health.errors" class="invalid-feedback">
                                             <div *ngIf="f.health.errors.required">{{this.fieldLabelen.health}} is
@@ -600,10 +573,9 @@
                                     <td>{{this.fieldLabelen.general_knowledge}}<span class="text-danger">*</span></td>
                                     <td><select formControlName="general_knowledge" class="form-control"
                                             [ngClass]="{ 'is-invalid': f.general_knowledge.errors && f.general_knowledge.touched }">
-                                            <option value="not_good">Not Good</option>
-                                            <option value="simple">Simple</option>
-                                            <option value="well">Well</option>
-                                            <option value="perfect">Perfect</option>
+                                            <option *ngFor="let data of statusOption" value="{{data.value}}">
+                                                {{data.text}}
+                                            </option>
                                         </select>
                                         <div *ngIf="f.general_knowledge.errors" class="invalid-feedback">
                                             <div *ngIf="f.general_knowledge.errors.required">
@@ -617,10 +589,9 @@
                                     <td>{{this.fieldLabelen.financial}}<span class="text-danger">*</span></td>
                                     <td><select formControlName="financial" class="form-control"
                                             [ngClass]="{ 'is-invalid': f.financial.errors && f.financial.touched }">
-                                            <option value="not_good">Not Good</option>
-                                            <option value="simple">Simple</option>
-                                            <option value="well">Well</option>
-                                            <option value="perfect">Perfect</option>
+                                            <option *ngFor="let data of statusOption" value="{{data.value}}">
+                                                {{data.text}}
+                                            </option>
                                         </select>
                                         <div *ngIf="f.financial.errors" class="invalid-feedback">
                                             <div *ngIf="f.financial.errors.required">{{this.fieldLabelen.financial}} is
@@ -634,10 +605,9 @@
                                     <td>{{this.fieldLabelen.hapiness}}<span class="text-danger">*</span></td>
                                     <td><select formControlName="hapiness" class="form-control"
                                             [ngClass]="{ 'is-invalid': f.hapiness.errors && f.hapiness.touched }">
-                                            <option value="not_good">Not Good</option>
-                                            <option value="simple">Simple</option>
-                                            <option value="well">Well</option>
-                                            <option value="perfect">Perfect</option>
+                                            <option *ngFor="let data of statusOption" value="{{data.value}}">
+                                                {{data.text}}
+                                            </option>
                                         </select>
                                         <div *ngIf="f.hapiness.errors" class="invalid-feedback">
                                             <div *ngIf="f.hapiness.errors.required">{{this.fieldLabelen.hapiness}} is
@@ -651,10 +621,9 @@
                                     <td>{{this.fieldLabelen.leadership}}<span class="text-danger">*</span></td>
                                     <td><select formControlName="leadership" class="form-control"
                                             [ngClass]="{ 'is-invalid': f.leadership.errors && f.leadership.touched }">
-                                            <option value="not_good">Not Good</option>
-                                            <option value="simple">Simple</option>
-                                            <option value="well">Well</option>
-                                            <option value="perfect">Perfect</option>
+                                            <option *ngFor="let data of statusOption" value="{{data.value}}">
+                                                {{data.text}}
+                                            </option>
                                         </select>
                                         <div *ngIf="f.leadership.errors" class="invalid-feedback">
                                             <div *ngIf="f.leadership.errors.required">{{this.fieldLabelen.leadership}}

@@ -25,8 +25,8 @@ export class ConsumerComponent implements OnInit {
     gender: 'Gender',
     status: 'Status',
     race: 'Race',
-    country: 'Country: (Foreigner)',
-    passport_no: 'Passport No',
+    country: 'Country (For Foreigner)',
+    passport_no: 'Passport No (For Foreigner)',
     mobile: 'Mobile No.',
     whatsapp: 'No. WhatsApp, No. (Home/ Office)',
     email: 'Email',
@@ -35,9 +35,33 @@ export class ConsumerComponent implements OnInit {
     state: 'State',
     postal_code: 'Postcode',
     preffered_communication: 'Preferred communication',
+    type_of_buusiness: 'Type of Business (If do Business)',
     profession: 'Profession',
     income_net: 'Nett income per month',
+    accept: 'Accepting the encapsulation of spices'
   };
+
+
+  public mStatus = [
+    {text: 'Married', value: 'married'},
+    {text: 'Single', value: 'single'},
+  ];
+  public genderOption = [
+    {text: 'Male', value: 'male'},
+    {text: 'Female', value: 'female'},
+  ];
+  public universalOption = [
+    {text: 'National (Native)', value: 'national'},
+    {text: 'Citizen (Immigrant)', value: 'citizen'},
+  ];
+
+  public preferredOption = [
+    {text: 'Mail', value: 'mail'},
+    {text: 'Email', value: 'email'},
+    {text: 'SMS', value: 'sms'},
+    {text: 'Telephone', value: 'tel'},
+    {text: 'WhatsApp', value: 'wa'},
+  ];
 
   constructor(
     private router: Router,
@@ -70,8 +94,8 @@ export class ConsumerComponent implements OnInit {
         gender: 'Gender',
         status: 'Status',
         race: 'Race',
-        country: 'Country: (Foreigner)',
-        passport_no: 'Passport No',
+        country: 'Country (For Foreigner)',
+        passport_no: 'Passport No (For Foreigner)',
         mobile: 'Mobile No.',
         whatsapp: 'No. WhatsApp, No. (Home/ Office)',
         email: 'Email',
@@ -80,57 +104,120 @@ export class ConsumerComponent implements OnInit {
         state: 'State',
         postal_code: 'Postcode',
         preffered_communication: 'Preferred communication',
+        type_of_buusiness: 'Type of Business (If do Business)',
         profession: 'Profession',
         income_net: 'Nett income per month',
+        accept: 'Accepting the encapsulation of spices'
       };
+      this.mStatus = [
+        {text: 'Married', value: 'married'},
+        {text: 'Single', value: 'single'},
+      ];
+      this.genderOption = [
+        {text: 'Male', value: 'male'},
+        {text: 'Female', value: 'female'},
+      ];
+      this.universalOption = [
+        {text: 'National (Native)', value: 'national'},
+        {text: 'Citizen (Immigrant)', value: 'citizen'},
+      ];
+      this.preferredOption = [
+        {text: 'Mail', value: 'mail'},
+        {text: 'Email', value: 'email'},
+        {text: 'SMS', value: 'sms'},
+        {text: 'Telephone', value: 'tel'},
+        {text: 'WhatsApp', value: 'wa'},
+      ];
     }else if (newValue === 'ma'){
-      this.modalHeader = 'PERMINTAAN UNTUK MENGKAPSULKAN REMPAH';
-      this.modalContent = '<p>dengan ini membuat permintaan kepada AK Universal Healthcare melalui AK Universal Concept, untuk mengkapsulkan rempah, supaya mudah ditelan dan untuk kegunaan peribadi saya sahaja.</p><p>Sebagai pengguna AK Universal Concept, saya membuat permintaan ini atas kehendak saya sendiri dan tidak akan bertanggungjawabkan AK Universal Concept atau AK Universal Healthcare ke atas apa-apa perkara sekalipun, sekiranya ia timbul, selepas proses pengkapsulan</p>';
-      this.title = 'BORANG PERMOHONAN PENGGUNA';
+      this.modalHeader = 'PERMINTAAN UNTUK MENGKAPSULKAN REMPAH / REQUEST FOR ENCAPSULATION OF SPICES';
+      this.modalContent = '<p>dengan ini membuat permintaan kepada AK Universal Healthcare melalui AK Universal Concept, untuk mengkapsulkan rempah, supaya mudah ditelan dan untuk kegunaan peribadi saya sahaja.</p><p>Sebagai pengguna AK Universal Concept, saya membuat permintaan ini atas kehendak saya sendiri dan tidak akan bertanggungjawabkan AK Universal Concept atau AK Universal Healthcare ke atas apa-apa perkara sekalipun, sekiranya ia timbul, selepas proses pengkapsulan</p><p>hereby make a request to AK Universal Healthcare, through AK Universal Concept, to encapsulate the spices for my easy consumption and personal use only.</p><p>As a consumer of AK Universal Concept, I am therefore making the above request on my own free will and will  not hold AK Universal Concept or AK Universal Healthcare liable on any matters whatsoever, should it arise, after  the encapsulation process.</p>';
+      this.title = 'BORANG PERMOHONAN PENGGUNA / CONSUMER APPLICATION FORM';
       this.fieldLabelen = {
-        name: 'Nama (seperti di kad pengenalan)',
-        NRIC_no: 'No.Kad Pengenalan',
-        marital_status: 'Status perkahwinan',
-        gender: 'Jantina',
-        status: 'Taraf',
-        race: 'Bangsa',
-        country: 'Country: (Warga asing)',
-        passport_no: 'No.Paspot',
-        mobile: 'No.Telefon bimbit',
-        whatsapp: 'No. WhatsApp, Alternatif (Rumah/Pejabat)',
-        email: 'Emel',
-        address: 'Alamat kediaman kini',
-        town: 'Bandar',
-        state: 'Negeri',
-        postal_code: 'Poskod',
-        preffered_communication: 'Cara berkomunikasi',
-        profession: 'Jawatan',
-        income_net: 'Pendapatan bersih sebulan',
+        name: 'Nama (Seperti di Kad Pengenalan) / Name (as in NRIC)',
+        NRIC_no: 'No. Kad Pengenalan / NRIC No',
+        marital_status: 'Taraf Perkahwinan / Marital status',
+        gender: 'Jantina / Gender',
+        status: 'Taraf / Status',
+        race: 'Bangsa / Race',
+        country: 'Negara (Untuk Warga Asing) / Country (For Foreigner)',
+        passport_no: 'No. Pasport (Untuk Warga Asing) / Passport No (For Foreigner)',
+        mobile: 'No. Telefon Bimbit / Mobile No.',
+        whatsapp: 'No. WhatsApp, Alternatif (Rumah/ Pejabat) / No. WhatsApp, No. (Home/ Office)',
+        email: 'E-mel / Email',
+        address: 'Alamat Rumah Terkini / Current residential address',
+        town: 'Bandar / Town',
+        state: 'Negeri / State',
+        postal_code: 'Poskod / Postcode',
+        preffered_communication: 'Cara Berkomunikasi / Preferred communication',
+        type_of_buusiness: 'Jenis Perniagaan (Jika Berniaga) / Type of Business (If do Business)',
+        profession: 'Jawatan / Profession',
+        income_net: 'Pendapatan Bersih Sebulan / Nett income per month',
+        accept: 'Setuju menerima pengkapsulan rempah / Accepting the encapsulation of spices'
       };
-    }else if (newValue === 'ch'){
-      this.modalHeader = 'REQUEST FOR ENCAPSULATION OF SPICES';
-      this.modalContent = '<p>hereby make a request to AK Universal Healthcare, through AK Universal Concept, to encapsulate the spices for my easy consumption and personal use only.</p><p>As a consumer of AK Universal Concept, I am therefore making the above request on my own free will and will  not hold AK Universal Concept or AK Universal Healthcare liable on any matters whatsoever, should it arise, after  the encapsulation process.</p>';
-      this.title = 'BORANG PERMOHONAN PENGGUNA';
+      this.mStatus = [
+        {text: 'Berkahwin / Married', value: 'married'},
+        {text: 'Bujang / Single', value: 'single'},
+      ];
+      this.genderOption = [
+        {text: 'Lelaki / Male', value: 'male'},
+        {text: 'Perempuan / Female', value: 'female'},
+      ];
+      this.universalOption = [
+        {text: 'Nasional (Kelahiran Tanah Air) / National (Native)', value: 'national'},
+        {text: 'Warganegara (Pendatang) / Citizen (Immigrant)', value: 'citizen'},
+      ];
+      this.preferredOption = [
+        {text: 'Surat / Mail', value: 'mail'},
+        {text: 'E-mel / Email', value: 'email'},
+        {text: 'Khidmat Pesanan Ringkas / SMS', value: 'sms'},
+        {text: 'Telefon / Telephone', value: 'tel'},
+        {text: 'WhatsApp', value: 'wa'},
+      ];
+    }else     if (newValue === 'ch'){
+      this.modalHeader = '请求将香料胶囊化 / REQUEST FOR ENCAPSULATION OF SPICES';
+      this.modalContent = '<p>因个人需求，本人在此要求 AK Universal Healthcare 将香料压缩至胶囊内以便容易食用。本人在此申明，此要求纯属个人意愿。</p><p>如有任何后续问题，AK Universal Healthcare 将无需附上任何责任。</p><p>hereby make a request to AK Universal Healthcare, through AK Universal Concept, to encapsulate the spices for my easy consumption and personal use only.</p><p>As a consumer of AK Universal Concept, I am therefore making the above request on my own free will and will  not hold AK Universal Concept or AK Universal Healthcare liable on any matters whatsoever, should it arise, after  the encapsulation process.</p>';
+      this.title = '消費者 應用 形成 / CONSUMER APPLICATION FORM';
       this.fieldLabelen = {
-        name: 'Nameeee (as in NRIC)',
-        NRIC_no: 'NRIC No',
-        marital_status: 'Marital status',
-        gender: 'Gender',
-        status: 'Status',
-        race: 'Race',
-        country: 'Country: (Foreigner)',
-        passport_no: 'Passport No',
-        mobile: 'Mobile No.',
-        whatsapp: 'No. WhatsApp, No. (Home/ Office)',
-        email: 'Email',
-        address: 'Current residential address',
-        town: 'Town',
-        state: 'State',
-        postal_code: 'Postcode',
-        preffered_communication: 'Preferred communication',
-        profession: 'Profession',
-        income_net: 'Nett income per month',
+        name: '名字 (身份证) / Name (as in NRIC)',
+        NRIC_no: '身份证号码 / NRIC No',
+        marital_status: '婚姻状况 / Marital status',
+        gender: '性别 / Gender',
+        status: '状态 / Status',
+        race: '种族 / Race',
+        country: '国家（外国人专用） / Country (For Foreigner)',
+        passport_no: '护照号码 （外国人专用） / Passport No (For Foreigner)',
+        mobile: '手机号码 / Mobile No.',
+        whatsapp: 'WhatsApp号码，其他 （居家/公司） / No. WhatsApp, No. (Home/ Office)',
+        email: '电邮 / Email',
+        address: '当前居住地址 / Current residential address',
+        town: '城市 / Town',
+        state: '州 / State',
+        postal_code: '邮政编码 / Postcode',
+        preffered_communication: '首选沟通 / Preferred communication',
+        type_of_buusiness: '生意类型（如果做生意） / Type of Business (If do Business)',
+        profession: '职业 / Profession',
+        income_net: '每月净收入 / Nett income per month',
+        accept: '接受香料胶囊化 / Accepting the encapsulation of spices'
       };
+      this.mStatus = [
+        {text: '已婚 / Married', value: 'married'},
+        {text: '单身 / Single', value: 'single'},
+      ];
+      this.genderOption = [
+        {text: '男 / Male', value: 'male'},
+        {text: '女 / Female', value: 'female'},
+      ];
+      this.universalOption = [
+        {text: '国家（本地）/ National (Native)', value: 'national'},
+        {text: '公民（移民) / Citizen (Immigrant)', value: 'citizen'},
+      ];
+      this.preferredOption = [
+        {text: '邮件 / Mail', value: 'mail'},
+        {text: '电邮 / Email', value: 'email'},
+        {text: '短信 / SMS', value: 'sms'},
+        {text: '电话 / Telephone', value: 'tel'},
+        {text: 'WhatsApp', value: 'wa'},
+      ];
     }
       // ... do other stuff here ...
   }
@@ -156,7 +243,8 @@ export class ConsumerComponent implements OnInit {
         preffered_communication: ['', Validators.required],
         profession: ['', Validators.required],
         income_net: [null, Validators.required],
-        spices: [null]
+        spices: [null],
+        type_of_buusiness: ['']
       });
   }
 
