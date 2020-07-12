@@ -28,7 +28,7 @@ export class ConsumerComponent implements OnInit {
     country: 'Country (For Foreigner)',
     passport_no: 'Passport No (For Foreigner)',
     mobile: 'Mobile No.',
-    whatsapp: 'No. WhatsApp, No. (Home/ Office)',
+    whatsapp: 'WhatsApp No, Alternative (Home/ Office)',
     email: 'Email',
     address: 'Current residential address',
     town: 'Town',
@@ -97,7 +97,7 @@ export class ConsumerComponent implements OnInit {
         country: 'Country (For Foreigner)',
         passport_no: 'Passport No (For Foreigner)',
         mobile: 'Mobile No.',
-        whatsapp: 'No. WhatsApp, No. (Home/ Office)',
+        whatsapp: 'WhatsApp No, Alternative (Home/ Office)',
         email: 'Email',
         address: 'Current residential address',
         town: 'Town',
@@ -130,7 +130,7 @@ export class ConsumerComponent implements OnInit {
       ];
     }else if (newValue === 'ma'){
       this.modalHeader = 'PERMINTAAN UNTUK MENGKAPSULKAN REMPAH / REQUEST FOR ENCAPSULATION OF SPICES';
-      this.modalContent = '<p>dengan ini membuat permintaan kepada AK Universal Healthcare melalui AK Universal Concept, untuk mengkapsulkan rempah, supaya mudah ditelan dan untuk kegunaan peribadi saya sahaja.</p><p>Sebagai pengguna AK Universal Concept, saya membuat permintaan ini atas kehendak saya sendiri dan tidak akan bertanggungjawabkan AK Universal Concept atau AK Universal Healthcare ke atas apa-apa perkara sekalipun, sekiranya ia timbul, selepas proses pengkapsulan</p><p>hereby make a request to AK Universal Healthcare, through AK Universal Concept, to encapsulate the spices for my easy consumption and personal use only.</p><p>As a consumer of AK Universal Concept, I am therefore making the above request on my own free will and will  not hold AK Universal Concept or AK Universal Healthcare liable on any matters whatsoever, should it arise, after  the encapsulation process.</p>';
+      this.modalContent = '<p>Dengan ini saya membuat permintaan kepada AK Universal Healthcare melalui AK Universal Concept untuk mengkapsulkan rempah supaya mudah ditelan dan untuk kegunaan peribadi saya sahaja.</p><p>Sebagai pengguna AK Universal Concept, saya membuat permintaan ini atas kehendak saya sendiri dan tidak akan mempertanggungjawabkan AK Universal Concept atau AK Universal Healthcare ke atas apa-apa perkara sekalipun, sekiranya ia menimbul selepas proses pengkapsulan.</p>';
       this.title = 'BORANG PERMOHONAN PENGGUNA / CONSUMER APPLICATION FORM';
       this.fieldLabelen = {
         name: 'Nama (Seperti di Kad Pengenalan) / Name (as in NRIC)',
@@ -142,7 +142,7 @@ export class ConsumerComponent implements OnInit {
         country: 'Negara (Untuk Warga Asing) / Country (For Foreigner)',
         passport_no: 'No. Pasport (Untuk Warga Asing) / Passport No (For Foreigner)',
         mobile: 'No. Telefon Bimbit / Mobile No.',
-        whatsapp: 'No. WhatsApp, Alternatif (Rumah/ Pejabat) / No. WhatsApp, No. (Home/ Office)',
+        whatsapp: 'No. WhatsApp, Alternatif (Rumah/ Pejabat) / WhatsApp No, Alternative (Home/ Office)',
         email: 'E-mel / Email',
         address: 'Alamat Rumah Terkini / Current residential address',
         town: 'Bandar / Town',
@@ -187,7 +187,7 @@ export class ConsumerComponent implements OnInit {
         country: '国家（外国人专用） / Country (For Foreigner)',
         passport_no: '护照号码 （外国人专用） / Passport No (For Foreigner)',
         mobile: '手机号码 / Mobile No.',
-        whatsapp: 'WhatsApp号码，其他 （居家/公司） / No. WhatsApp, No. (Home/ Office)',
+        whatsapp: 'WhatsApp号码，其他 （居家/公司） / WhatsApp No, Alternative (Home/ Office)',
         email: '电邮 / Email',
         address: '当前居住地址 / Current residential address',
         town: '城市 / Town',
