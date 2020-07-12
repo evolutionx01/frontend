@@ -45,7 +45,8 @@
                         [ngClass]="{ 'is-invalid': f.NRIC_no.errors && f.NRIC_no.touched }" />
                     <div *ngIf="f.NRIC_no.errors" class="invalid-feedback">
                         <div *ngIf="f.NRIC_no.errors.required">{{this.fieldLabelen.NRIC_no}} is required</div>
-                        <div *ngIf="f.NRIC_no.errors.NRIC_no">{{this.fieldLabelen.NRIC_no}} must be a valid one</div>
+                        <div *ngIf="f.NRIC_no.errors.pattern">{{this.fieldLabelen.NRIC_no}} is not valid
+                        </div>
                     </div>
                 </div>
                 <div class="form-group col-md-4 col-sm-12">
@@ -138,7 +139,8 @@
                         [ngClass]="{ 'is-invalid': f.postal_code.errors && f.postal_code.touched }" />
                     <div *ngIf="f.postal_code.errors" class="invalid-feedback">
                         <div *ngIf="f.postal_code.errors.required">{{this.fieldLabelen.postal_code}} is required</div>
-
+                        <div *ngIf="f.postal_code.errors.pattern">{{this.fieldLabelen.postal_code}} is not valid
+                        </div>
                     </div>
                 </div>
             </div>
@@ -204,6 +206,8 @@
                         [ngClass]="{ 'is-invalid': f.income_net.errors && f.income_net.touched }" />
                     <div *ngIf="f.income_net.errors" class="invalid-feedback">
                         <div *ngIf="f.income_net.errors.required">{{this.fieldLabelen.income_net}} is required</div>
+                        <div *ngIf="f.income_net.errors.pattern">{{this.fieldLabelen.income_net}} is not valid
+                        </div>
                     </div>
                 </div>
             </div>

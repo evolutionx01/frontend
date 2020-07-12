@@ -226,23 +226,23 @@ export class ConsumerComponent implements OnInit {
     public buildConsumerForm(){
       this.consumerForm = this.formBuilder.group({
         name: ['', Validators.required],
-        NRIC_no: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
+        NRIC_no: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
         marital_status: ['', Validators.required],
         gender: ['', Validators.required],
         status: ['', Validators.required],
         race: ['', Validators.required],
         country: [''],
         passport_no: [null],
-        mobile: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
-        whatsapp: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
+        mobile: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+        whatsapp: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
         email: ['', Validators.email],
         address: ['', Validators.required],
         town: ['', Validators.required],
         state: ['', Validators.required],
-        postal_code: [null, Validators.required],
+        postal_code: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
         preffered_communication: ['', Validators.required],
         profession: ['', Validators.required],
-        income_net: [null, Validators.required],
+        income_net: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
         spices: [null],
         type_of_buusiness: ['']
       });
@@ -252,6 +252,9 @@ export class ConsumerComponent implements OnInit {
    get f() { return this.consumerForm.controls; }
 
    public addConsumer() {
+    this.consumerForm.patchValue({
+      spices: this.f.spices.value.toString()
+    });
     console.log(this.consumerForm.value);
     this.spinner.show();
     this.conService.addConsumer(this.consumerForm.value).subscribe(
