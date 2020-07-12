@@ -1,3 +1,4 @@
+import { CommonService } from './../service/common.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,8 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-content.component.scss']
 })
 export class AdminContentComponent implements OnInit {
+  toggledStatus: boolean;
 
-  constructor(private router: Router ) { }
+  constructor(
+    private router: Router,
+    private commonService: CommonService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -16,6 +21,11 @@ export class AdminContentComponent implements OnInit {
   public logout(){
     sessionStorage.clear();
     this.router.navigate(['/']);
+  }
+
+  public toggleSidebar(){
+    this.toggledStatus = !this.toggledStatus;
+    this.commonService.toggleClicked(this.toggledStatus);
   }
 
 }

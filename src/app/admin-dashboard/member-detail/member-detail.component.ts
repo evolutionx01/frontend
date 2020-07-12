@@ -1,3 +1,4 @@
+import { ExcelService } from './../../auth/excel.service';
 import { MemberDetailsService } from './member-details.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -15,6 +16,7 @@ export class MemberDetailComponent implements OnInit {
     private router: Router,
     private apiService: MemberDetailsService,
     private spinner: NgxSpinnerService,
+    private excelService: ExcelService
     ) { }
 
   ngOnInit(): void {
@@ -47,4 +49,9 @@ export class MemberDetailComponent implements OnInit {
       this.memberlist = [];
     }
   }
+
+  public generateReport(){
+    this.excelService.exportAsExcelFile(this.memberlist, 'member');
+  }
+
 }

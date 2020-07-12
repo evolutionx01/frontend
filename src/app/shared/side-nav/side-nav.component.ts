@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { CommonService } from '../service/common.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -18,7 +19,9 @@ export class SideNavComponent implements OnInit {
         this.toggledStatus = false;
       }
     }
-  constructor() {
+  constructor(
+    private commonService: CommonService
+  ) {
     this.onResize();
    }
 
@@ -27,6 +30,12 @@ export class SideNavComponent implements OnInit {
     if (this.innerWidth <= 768){
       this.toggledStatus = false;
     }
+
+    this.commonService.$toggleObservable.subscribe(
+      data => {
+        this.toggledStatus = data;
+      }
+    );
   }
 
     public toggleSidebar(){

@@ -1,3 +1,4 @@
+import { ExcelService } from './../../auth/excel.service';
 import { ConsumerDetailsService } from './consumer-details.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,7 +15,8 @@ export class ConsumerDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private apiService: ConsumerDetailsService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private excelService: ExcelService
     ) { }
 
   ngOnInit(): void {
@@ -41,6 +43,10 @@ export class ConsumerDetailComponent implements OnInit {
     }else{
       this.consumerlist = [];
     }
+  }
+
+  public generateReport(){
+    this.excelService.exportAsExcelFile(this.consumerlist, 'sample');
   }
 
 }
