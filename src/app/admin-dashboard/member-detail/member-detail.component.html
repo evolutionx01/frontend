@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Memeber Details</h1>
+    </div>
+    <div class="row">
+        <div *ngFor="let item of memberlist" class="col-lg-3 col-xs-12 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}} - {{item.age}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{item.NRIC_new}}</h6>
+                    <p class="card-text">Whatsapp: {{item.whatsapp}}</p>
+                    <p class="card-text">{{item.address}}, {{item.town}}, {{item.state}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

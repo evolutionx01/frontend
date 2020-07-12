@@ -1,3 +1,4 @@
+import { AuthGuardService } from './auth/auth-guard/auth-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,9 +16,13 @@ import { LightboxModule } from 'ngx-lightbox';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { AdminContentComponent } from './shared/admin-content/admin-content.component';
+import { AuthGuardComponent } from './auth/auth-guard/auth-guard.component';
+import { ChartsModule } from 'ng2-charts';
+import { SideNavComponent } from './shared/side-nav/side-nav.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, ContentComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, ContentComponent, AdminContentComponent, SideNavComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,9 +35,10 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartsModule
   ],
-  providers: [
+  providers: [AuthGuardComponent, AuthGuardService,
     // {
     //   provide: 'SocialAuthServiceConfig',
     //   useValue: {

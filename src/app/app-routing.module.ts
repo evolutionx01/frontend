@@ -2,6 +2,8 @@ import { AboutUsModule } from './about-us/about-us.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContentComponent } from './shared/content/content.component';
+import { AdminContentComponent } from './shared/admin-content/admin-content.component';
+import { AuthGuardComponent } from './auth/auth-guard/auth-guard.component';
 
 
 const routes: Routes = [
@@ -33,6 +35,21 @@ const routes: Routes = [
         path: 'universalconcept',
         loadChildren: () => import('./universal-concept/universal-concept.module').then(m => m.UniversalConceptModule)
       }
+    ]
+  },
+  {
+    path: 'login',
+    loadChildren:  () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'admin',
+    component: AdminContentComponent,
+    canActivate: [AuthGuardComponent],
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule)
+      },
     ]
   },
   {

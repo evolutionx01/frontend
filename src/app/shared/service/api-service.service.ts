@@ -1,3 +1,4 @@
+import { JwtService } from './../../auth/jwt.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -9,13 +10,16 @@ import { environment } from '../../../environments/environment';
 })
 export class ApiServiceService {
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private jwtService: JwtService) { }
 
   private setHeaders() {
+    const token = this.jwtService.getRawToken();
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-       // 'Authorization': 'Bearer '+token
+        // tslint:disable-next-line: object-literal-key-quotes
+        'Authorization': 'Bearer ' + token
       })
     };
     return httpOptions;
