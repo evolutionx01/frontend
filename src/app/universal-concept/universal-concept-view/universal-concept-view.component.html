@@ -1,8 +1,35 @@
-<div class="page_banner">
-    <div class="container">
-        <h2>AK UNIVERSAL CONCEPT</h2>
+<section id="top-section">
+    <div class="page_banner">
+        <div class="container">
+            <h2>AK UNIVERSAL CONCEPT</h2>
+            <p>AKUC is a platform to fulfill and establish the nation's dream of achieving a desired lifestyle.
+                AKUC offers you the opportunity to help materialize that dream with your services.</p>
+        </div>
     </div>
-</div>
+</section>
+
+<section class="about-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 no-gutter">
+                <img src="../../../assets/training.jpg" alt="ak Universal Concept" class="img-fluid" />
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 foundation_title">
+                <div class="sec-title">
+                    <h2>How do we lay our foundation</h2>
+                </div>
+                <div class="desc">
+                    <p>Many think that opening a business outlet and start operating is the way of business but may fail
+                        to realize that they are taking high risk by doing it because they are not sure whether they
+                        will have customers they wish. it is simply like making the building without a proper
+                        fountation. we have to do the solid piling as foundation before making the building. Likewise we
+                        have to recurit our customers to let our business live forever</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 <section class="about">
     <div class="container">
@@ -27,64 +54,45 @@
 
         </div>
     </div>
-</section>
-<section class="emp">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="../../../assets/training.jpg" alt="ak Universal Concept" class="img-fluid" />
-            </div>
-            <div class="col-md-6">
-                <div class="sec-title">
-                    <h2>THE DIFFERENCE IN EMPLOYMENT </h2>
-                </div>
-                <div class="desc">
-                    <p>No racial segregation as we practice universal concept</p>
-
-                    <p>No bias in promotion as we implement performance basis</p>
-
-                    <p>No discrimination as we regard all our employees as a team</p>
-
-                    <p>No sabotage as we care and love our employees as a family member </p>
-
-                    <h5>No hanky-panky business as we are professional</h5>
-
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="join">
-    <div class="container">
+    <div class="container join">
         <div class="row">
             <div class="col-12 quotes">
                 <h4>WHO SHOULD JOIN US? <span class="highlight">OPTIMIST & IGNORANCE</span> </h4>
 
                 <h5 class="mb-4">WHO SHOULD NOT JOIN US? <span class="highlight">PESSIMIST & LOSER</span> </h5>
 
-                <h2>NOBODY PLAN TO FAIL BUT MANY FAIL TO PLAN SO PLAN YOUR LIFE AND LIVE YOUR LIFE AS LIFE IS WHAT
 
-                    <br> <span class="highlight">WE MAKE IT</span></h2>
             </div>
-            <div class="col-md-12 pt-4">
-                <div class="my-2 text-center">
+            <div class="col-md-6">
+                <img src="../../../assets/seo-traffic-img.png" class="img-fluid">
+            </div>
+            <div class="col-md-6 pt-4">
+                <p>Expecting the world to treat us fairly is a little like expecting a bull not to attack us because we
+                    are vegetarians </p>
+                <p>Nobody plan to fail but many fail to plan so plan your life and live your life as life is what, we
+                    make it</p>
+                <div class="my-2 py-4">
                     <button routerLink="/register" class="btn btn-custom mb-2 mr-2">Join Us</button>
-                    <p class="text-center mb-0">so, you are invited to join us to be a realist</p>
+                    <p class="mb-0">you are invited to join us to be a realist</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+
 <section>
     <div class="container">
-        <div class="row">
+        <div class="row gallery">
+            <div class="col-md-12">
+                <p>Every AKUC members and their families are able to enjoy privileges offered by AK Universal Foundation
+                    by providing</p>
+            </div>
             <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let image of albumArr; let i=index">
                 <div class="card mb-4 px-2 py-2">
+
                     <img class="img-fluid" [src]="image.thumb" [alt]="image.caption" (click)="open(i)" />
+                    <p>{{image.caption}}</p>
                 </div>
             </div>
 

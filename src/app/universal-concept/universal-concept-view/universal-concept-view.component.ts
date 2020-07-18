@@ -10,16 +10,16 @@ export class UniversalConceptViewComponent implements OnInit {
 
 
   albumArr = [];
-  caption = ['', '2014 Seminar', '2014 Seminar', '2014 Seminar', '2015 Seminar', '2015 Seminar', '2015 Seminar', '2015 Seminar'];
+  caption = ['', 'Natural Treatment For Healthcare Free of Charge', 'Quality education centre for members’ Children', 'Meditation and Yoga Classes', 'Recreational Centre', 'AKUC Guest House for members vacation/relaxation/recreation with playground and swimming  pool', 'Swimming Pool', 'Nursing Home', 'Free Welfare Service', 'Self Defence Classes'];
 
   constructor(
     private lightbox: Lightbox
   ) {
 
-    for (let i = 1; i <= 7; i++) {
-      const src = '../../../assets/seminar_' + i + '.jpg';
+    for (let i = 1; i <= 9; i++) {
+      const src = '../../../assets/akuc' + i + '.jpg';
       const caption = this.caption[i];
-      const thumb = '../../../assets/seminar_' + i + '.jpg';
+      const thumb = '../../../assets/akuc' + i + '.jpg';
       const album = {
          src,
          caption,

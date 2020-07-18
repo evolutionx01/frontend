@@ -1,56 +1,32 @@
 header {
-    color: white;
-    .top_header {
-        background-color: #122740;
-        padding: 0.25rem 0;
-        span {
-            padding-right: 1rem;
-        }
+    .nav-custom {
+        flex-direction: column;
+        align-items: flex-end;
     }
-    .menu_banner {
-        background-image: url("../../../assets/header_banner.png");
-        padding-bottom: 1.5rem;
-        .logo_container {
-            padding: 0.5rem 0;
-            img {
-                width: 7rem;
-                margin: 0 auto;
-                text-align: center;
-                display: block;
-            }
-        }
-        .app_menu {
-            position: relative;
-            .menu_container {
-                z-index: 1;
-                position: absolute;
-                left: 0;
-                right: 0;
-                margin: 0 auto;
-                max-width: 1170px;
-                .bg-blue {
-                    background-color: #122740;
-                }
-            }
-        }
-    }
-}
 
-.navbar {
-    padding: 0rem 2.5rem;
-    .nav-link {
-        padding: 1rem 1rem;
-    }
-    .active {
-        background-color: #d55342;
-    }
-}
+    .navbar {
+        //background-color: #3498db;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+        padding: 0rem 6rem;
+        .nav-link {
+            padding: 1.5rem 1rem;
+            font-size: 0.9rem;
+            /* font-weight: bold; */
+            letter-spacing: 1.5px;
 
-@media (max-width: 991.98px) {
-    .menu_banner {
-        padding-bottom: 0 !important;
-    }
-    .menu_container {
-        position: relative !important;
+            font-weight: 600;
+        }
+        .active {
+            color: #021057;
+            font-weight: 600;
+        }
+        li {
+            margin-left: 1rem;
+        }
+        .navbar-brand {
+            color: #021057;
+            letter-spacing: 0.6px;
+            font-weight: bold;
+        }
     }
 }

@@ -1,6 +1,14 @@
+#top-section {
+    position: relative;
+    margin-top: 56px;
+}
 .page_banner {
-    background-image: url("../../../assets/page_banner.jpg");
-    padding: 5rem 0;
+    background-image: url("../../../assets/about.png");
+    padding-top: 6rem;
+    padding-bottom: 12rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     h2 {
         color: white;
         text-transform: uppercase;
@@ -33,7 +41,15 @@
     line-height: 22px;
     color: #ffffff;
     padding: 15px 45px;
-    background: #d94b38;
+    background: #3498db;
     font-weight: 400;
     border: none;
+    transition: all 300ms ease;
+    border: 1px solid #3498db !important;
+    &:hover {
+        background-color: transparent !important;
+        border: 1px solid #3498db !important;
+        color: #3498db !important;
+        box-shadow: 0 6px 13px rgba(214, 214, 214, 0.75);
+    }
 }

@@ -1,16 +1,22 @@
+#top-section {
+    position: relative;
+    margin-top: 56px;
+}
 .page_banner {
-    background-image: url("../../../assets/page_banner.jpg");
-    padding: 5rem 0;
+    background-image: url("../../../assets/about.png");
+    padding-top: 6rem;
+    padding-bottom: 12rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     h2 {
         color: white;
         text-transform: uppercase;
     }
 }
-section {
-    padding: 2.5rem 0;
-}
 
 .aboutus-sec {
+    padding-top: 2.5rem;
     .aboutus {
         .list-group {
             padding: 2rem 0;
@@ -19,41 +25,69 @@ section {
             background-color: transparent;
         }
     }
-}
-
-.mission-sec {
-    position: relative;
-    background-color: #f8f3e8;
-    .content {
-        display: inline-block;
-        width: 70%;
-    }
-    .image {
-        display: inline-block;
-        width: 30%;
-    }
-    .sec-title {
-        position: relative;
-
-        h2 {
-            padding-bottom: 1rem;
-
-            &:before {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                margin: 0 auto;
-                display: inline-block;
-                height: 3px;
-                width: 75px;
-                background-color: #d55342;
-                content: "";
-                border-radius: 50%;
-            }
+    .about-title {
+        h4 {
+            padding-bottom: 2rem;
+            color: #1e1666;
         }
     }
-    .sec-desc {
-        padding: 2rem 0;
+
+    .card {
+        border: none;
+        transition: all 300ms ease;
+        &:hover {
+            box-shadow: 0 6px 13px rgba(214, 214, 214, 0.75);
+        }
+    }
+}
+
+.details {
+    padding: 5rem 0;
+    background-image: url(https://m7n5e4p3.stackpathcdn.com/wp-content/uploads/2019/06/seo-curve-banner.png);
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    .aboutus {
+        .content {
+            color: #333334;
+            font-size: 1rem;
+            padding-bottom: 1rem;
+        }
+        .list {
+            color: #333334;
+            font-size: 1rem;
+            padding-left: 1rem;
+            padding-bottom: 1rem;
+        }
+    }
+}
+
+.sec-title {
+    position: relative;
+
+    h4 {
+        padding-bottom: 1rem;
+        color: #1e1666;
+
+        // &:before {
+        //     position: absolute;
+        //     bottom: 0;
+        //     left: 0;
+        //     margin: 0 auto;
+        //     display: inline-block;
+        //     height: 3px;
+        //     width: 75px;
+        //     background-color: #d55342;
+        //     content: "";
+        //     border-radius: 50%;
+        // }
+    }
+}
+.sec-desc {
+    padding: 1rem 0;
+    p {
+        color: #6a7c92;
+        font-size: 1rem;
     }
 }
 

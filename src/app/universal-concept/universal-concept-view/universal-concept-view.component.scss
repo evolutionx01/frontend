@@ -1,8 +1,17 @@
+#top-section {
+    position: relative;
+    margin-top: 56px;
+}
 .page_banner {
-    background-image: url("../../../assets/page_banner.jpg");
-    padding: 5rem 0;
+    background-image: url("../../../assets/about.png");
+    padding-top: 6rem;
+    padding-bottom: 9rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     h2 {
         color: white;
+        text-transform: uppercase;
     }
     p {
         color: white;
@@ -11,7 +20,6 @@
     }
 }
 section {
-    padding: 2.5rem 0;
     .sec-title {
         position: relative;
 
@@ -40,20 +48,12 @@ section {
 }
 
 .about {
-    background: url("../../../assets/about-bg.jpg") center top no-repeat fixed;
-    background-size: cover;
-    padding: 60px 0 40px 0;
-    position: relative;
-    &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.92);
-        z-index: 9;
-    }
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+    background-image: url(https://m7n5e4p3.stackpathcdn.com/wp-content/uploads/2020/04/home-fifteen-back.png);
+    background-position: -139px 0;
+    background-repeat: no-repeat;
+    background-size: auto;
     .container {
         position: relative;
         z-index: 10;
@@ -61,7 +61,7 @@ section {
             h2 {
                 padding: 0 5rem;
                 text-align: center;
-                color: #d94b38;
+                color: #021057;
             }
             .content {
                 padding: 2rem 0;
@@ -73,6 +73,30 @@ section {
         }
     }
 }
+
+.gallery {
+    p {
+        padding-top: 0.5rem;
+        color: #333333;
+    }
+}
+
+// .about {
+//     background: url("../../../assets/about-bg.jpg") center top no-repeat fixed;
+//     background-size: cover;
+//     padding: 60px 0 40px 0;
+//     position: relative;
+//     &::before {
+//         content: "";
+//         position: absolute;
+//         left: 0;
+//         right: 0;
+//         top: 0;
+//         bottom: 0;
+//         background: rgba(255, 255, 255, 0.92);
+//         z-index: 9;
+//     }
+// }
 
 .btn-custom {
     position: relative;
@@ -97,13 +121,97 @@ section {
 }
 
 .join {
-    background-color: #333333;
-    color: white;
+    color: #333333;
+
     .quotes {
         padding: 0 5rem;
+        padding-bottom: 5rem;
         text-align: center;
     }
     .highlight {
         color: #d55342;
+    }
+}
+
+.about-us {
+    padding: 2.5rem;
+    position: relative;
+    .foundation_title {
+        padding: 3rem 2rem;
+
+        .desc {
+            padding: 2rem 0;
+            color: #6a7c92;
+        }
+        .sec-title {
+            position: relative;
+
+            h2 {
+                font-size: 2rem;
+                padding-bottom: 1rem;
+                padding-right: 3rem;
+                color: #021057;
+                letter-spacing: -0.6px;
+                &:before {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+
+                    margin: 0 auto;
+                    display: inline-block;
+                    height: 3px;
+                    width: 75px;
+                    background-color: #3498db;
+                    content: "";
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    span {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 80px;
+        width: 80px;
+        text-align: center;
+        line-height: 80px;
+        font-size: 20px;
+        color: #333333;
+        margin-left: -40px;
+        margin-top: -40px;
+        padding-left: 5px;
+        background-color: rgba(255, 255, 255, 0.85);
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+        transition: all 300ms ease;
+        &:hover {
+            background-color: #d94b38;
+            color: #fefefe;
+        }
+    }
+}
+
+.btn-custom {
+    position: relative;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ffffff;
+    padding: 15px 45px;
+    background: #3498db;
+    font-weight: 400;
+    border: none;
+    transition: all 300ms ease;
+    border: 1px solid #3498db !important;
+    &:hover {
+        background-color: transparent !important;
+        border: 1px solid #3498db !important;
+        color: #3498db !important;
+        box-shadow: 0 6px 13px rgba(214, 214, 214, 0.75);
     }
 }

@@ -1,48 +1,31 @@
 <header>
-  <div class="top_header">
-    <div class="container">
-      <span>info@akucfoundation.com</span>
-      <span>|</span>
-      <span>014 – 664 1314</span>
-    </div>
-  </div>
-  <div>
-    <!-- <button (click)="signInWithGoogle()">google</button> -->
-  </div>
-  <div class="menu_banner">
-    <div class="logo_container">
-      <img src="../../../assets/logo.png" alt="akuc foundation logo" />
-    </div>
-    <div class="container-lg container-md-fluid app_menu">
-      <div class="menu_container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/" routerLinkActive="active"
-                  [routerLinkActiveOptions]="{exact: true}">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/aboutus" routerLinkActive="active"
-                  [routerLinkActiveOptions]="{exact: true}">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="/team" routerLinkActive="active">Team</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <a class="navbar-brand" routerLink="/">AKUC Foundation</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse nav-custom" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home
+              <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/aboutus" routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/team" routerLinkActive="active">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn-custom" routerLink="/register" routerLinkActive="active">Register</a>
+          </li>
+
+        </ul>
       </div>
-
-    </div>
+    </nav>
   </div>
-
 
 </header>
