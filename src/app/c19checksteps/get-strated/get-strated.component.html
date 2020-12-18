@@ -23,6 +23,88 @@
     </div>
 </section>
 
+<section class="what-we-do">
+  <div class="container mainTitle">
+    <div class="sec-title text-center">
+      <h2>What We Do</h2>
+    </div>
+    <div class="row our_concept">
+      <div class="col mx-1 col-xs-12">
+        <div class="card">
+          <div class="card-body" (click)="redirect('concept')">
+            <img alt="ak universal concept" src="../../../assets/logo.png">
+
+          </div>
+        </div>
+      </div>
+      <div class="col mx-1 col-xs-12">
+        <div class="card">
+          <div class="card-body" (click)="redirect('health')">
+            <img alt="ak universal healthcare" src="../../../assets/logo_HC.png">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container mainTitle">
+    <div class="sec-title text-center">
+      <h2>How We Do</h2>
+    </div>
+    <div class="row how_we_do">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-4">
+        <div class="card ">
+          <div class="card-body">
+            <img src="../../../assets/icon1-1.png" alt="akuc">
+            <h5>Commitment</h5>
+            <p>
+              Individual commitment to a group effort - that is what makes a team work, a company work, a
+              society work. A civilization work.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-4">
+        <div class="card ">
+          <div class="card-body">
+            <img src="../../../assets/icon2-1.png" alt="akuc">
+            <h5>Teamwork</h5>
+            <p>
+              Teamwork means that we share a common goal. Regardless of our differences, we strike
+              shoulder to
+              shoulder, confident in one another’s faith, trust and commitment. In the end, teamwork can
+              be
+              summed up in five short words --‘We believe in each other’.
+
+
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-4">
+        <div class="card ">
+          <div class="card-body">
+            <img src="../../../assets/icon3-1.png" alt="akuc">
+            <h5>Communication</h5>
+            <p>
+              We recognize our leaders as the backbone of our organization because in business today
+              success
+              depends on giving customers what they want which takes us to the very basis of good
+              communication.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</section>
+
 <section class="about-us">
     <div class="container">
         <div class="row">
@@ -69,118 +151,42 @@
 
 </section>
 
-<section class="what-we-do">
-    <div class="container mainTitle">
-        <div class="sec-title text-center">
-            <h2>What We Do</h2>
+<section>
+  <div class="container register">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <img alt="akuc youtube video" class="img-fluid" src="../../../assets/join.png" />
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12 foundation_title">
+        <div class="sec-title">
+          <h2>Discover the advantages of our unique services</h2>
         </div>
-        <div class="row our_concept">
-            <div class="col mx-1 col-xs-12">
-                <div class="card">
-                    <div class="card-body" (click)="redirect('concept')">
-                        <img alt="ak universal concept" src="../../../assets/logo.png">
-
-                    </div>
-                </div>
-            </div>
-            <div class="col mx-1 col-xs-12">
-                <div class="card">
-                    <div class="card-body" (click)="redirect('health')">
-                        <img alt="ak universal healthcare" src="../../../assets/logo_HC.png">
-                    </div>
-                </div>
-            </div>
-
+        <div class="desc">
+          <p>Nobody plan to fail but many fail to plan so plan your life and live your life as life is what,
+            we make it</p>
         </div>
+
+        <div class="statistic">
+          <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <h2>100,000</h2>
+              <p>Satisfied Customer</p>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <h2>10+</h2>
+              <p>Successful Outlets</p>
+            </div>
+          </div>
+        </div>
+        <div class="register-btn">
+          <button (click)="register()" class="btn btn-custom">Register Now</button>
+        </div>
+      </div>
     </div>
-
-    <div class="container mainTitle">
-        <div class="sec-title text-center">
-            <h2>How We Do</h2>
-        </div>
-        <div class="row how_we_do">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-4">
-                <div class="card ">
-                    <div class="card-body">
-                        <img src="../../../assets/icon1-1.png" alt="akuc">
-                        <h5>Commitment</h5>
-                        <p>
-                            Individual commitment to a group effort - that is what makes a team work, a company work, a
-                            society work. A civilization work.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-4">
-                <div class="card ">
-                    <div class="card-body">
-                        <img src="../../../assets/icon2-1.png" alt="akuc">
-                        <h5>Teamwork</h5>
-                        <p>
-                            Teamwork means that we share a common goal. Regardless of our differences, we strike
-                            shoulder to
-                            shoulder, confident in one another’s faith, trust and commitment. In the end, teamwork can
-                            be
-                            summed up in five short words --‘We believe in each other’.
-
-
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-4">
-                <div class="card ">
-                    <div class="card-body">
-                        <img src="../../../assets/icon3-1.png" alt="akuc">
-                        <h5>Communication</h5>
-                        <p>
-                            We recognize our leaders as the backbone of our organization because in business today
-                            success
-                            depends on giving customers what they want which takes us to the very basis of good
-                            communication.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="container register">
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12">
-                <img alt="akuc youtube video" class="img-fluid" src="../../../assets/join.png" />
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 foundation_title">
-                <div class="sec-title">
-                    <h2>Discover the advantages of our unique services</h2>
-                </div>
-                <div class="desc">
-                    <p>Nobody plan to fail but many fail to plan so plan your life and live your life as life is what,
-                        we make it</p>
-                </div>
-
-                <div class="statistic">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <h2>100,000</h2>
-                            <p>Satisfied Customer</p>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <h2>10+</h2>
-                            <p>Successful Outlets</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="register-btn">
-                    <button (click)="register()" class="btn btn-custom">Register Now</button>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </section>
+
+
 
 <section class="foundation">
     <div class="container-fluid">
