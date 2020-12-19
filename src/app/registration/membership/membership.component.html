@@ -146,13 +146,15 @@
                     <div class="form-group">
                         <label>{{this.fieldLabelen.upload_photo}}<span class="text-danger">*</span></label>
                         <div class="custom-file">
-                            <input type="file" (change)="fileChange($event)" class="form-control custom-file-input"
-                                id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="form-control custom-file-label"
-                                for="inputGroupFile01">{{this.fieldLabelen.choose_file}}<span
-                                    class="text-danger">*</span></label>
+                            <!--<input type="file" (change)="fileChange($event)" class="form-control custom-file-input"-->
+                            <!--id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">-->
+                            <!--<label class="form-control custom-file-label"-->
+                            <!--for="inputGroupFile01">{{this.fieldLabelen.choose_file}}<span-->
+                            <!--class="text-danger">*</span></label>-->
+                            <input type="file" (change)="selectFile($event)">
                         </div>
                     </div>
+                    <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
                     <div class="form-group">
                         <img [src]=this.url class="img-thumbnail" alt="upload you image" />
                     </div>

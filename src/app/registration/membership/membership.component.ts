@@ -38,6 +38,7 @@ export class MembershipComponent implements OnInit {
   model: NgbDateStruct;
   time: NgbTimeStruct;
   registerForm: FormGroup;
+  selectedFiles: FileList;
   url: any = '';
   public weekdays = [
     {text: 'Sunday', value: 'sunday'},
@@ -524,6 +525,14 @@ export class MembershipComponent implements OnInit {
     }
   }
 
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+  upload() {
+    const file = this.selectedFiles.item(0);
+    this.memService.uploadFile(file)
+  }
 
   fileChange(event) {
     if (event.target.files && event.target.files[0]) {
