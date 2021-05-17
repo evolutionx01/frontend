@@ -20,7 +20,7 @@ export class AdminContentComponent implements OnInit {
 
   public logout(){
     sessionStorage.clear();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   public toggleSidebar(){

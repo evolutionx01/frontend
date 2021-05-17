@@ -1,9 +1,17 @@
 .page_banner {
-    background-image: url("../../../assets/about.png");
-    padding: 5rem 0;
-    h4 {
-        color: white;
-    }
+  background-image: url("../../../assets/about.png");
+  padding-top: 4rem;
+  padding-bottom: 8rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  h2 {
+    padding-top: 1rem;
+    color: #1e4356;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size:1.65rem;
+  }
 }
 #top-section {
     position: relative;

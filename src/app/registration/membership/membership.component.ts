@@ -5,6 +5,9 @@ import {NgbDateStruct, NgbCalendar, NgbDateAdapter, NgbTimeAdapter, NgbDateNativ
 import { DatePipe } from '@angular/common';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import * as AWS from 'aws-sdk/global';
+import * as S3 from 'aws-sdk/clients/s3';
+import { DomSanitizer } from '@angular/platform-browser';
 
 const pad = (i: number): string => i < 10 ? `0${i}` : `${i}`;
 @Injectable()
@@ -39,7 +42,7 @@ export class MembershipComponent implements OnInit {
   time: NgbTimeStruct;
   registerForm: FormGroup;
   selectedFiles: FileList;
-  url: any = '';
+  url: any = 'https://akuc-file.s3.ap-south-1.amazonaws.com/Capture.PNG';
   public weekdays = [
     {text: 'Sunday', value: 'sunday'},
     {text: 'Monday', value: 'monday'},
@@ -152,11 +155,11 @@ export class MembershipComponent implements OnInit {
     private memService: MembershipService,
     private modalService: NgbModal,
     private spinner: NgxSpinnerService,
+    private domSanitizer: DomSanitizer,
     private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>
     ) { }
 
   ngOnInit(): void {
-    this.url = '';
     this.buildRegisterForm();
   }
 
@@ -503,7 +506,8 @@ export class MembershipComponent implements OnInit {
     this.spinner.show();
 
     this.registerForm.patchValue({
-      birth_date: new Date(this.f.birth_date.value).getTime()
+      birth_date: new Date(this.f.birth_date.value).getTime(),
+      file: this.url
     });
 
     this.memService.addmember(this.registerForm.value).subscribe(
@@ -529,9 +533,48 @@ export class MembershipComponent implements OnInit {
     this.selectedFiles = event.target.files;
   }
 
-  upload() {
+  async upload() {
     const file = this.selectedFiles.item(0);
-    this.memService.uploadFile(file)
+    this.uploadFile(file)
+  }
+
+
+  async uploadFile(file) {
+    const contentType = file.type;
+    const bucket = new S3(
+      {
+        accessKeyId: 'AKIAUPEPY7MG34S2OS5X',
+        secretAccessKey: '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',
+        region: 'ap-south-1'
+      }
+    );
+    const params = {
+      Bucket: 'akuc-file',
+      Key: 'images/'+file.name,
+      Body: file,
+      ACL: 'public-read',
+      ContentType: contentType
+    };
+    bucket.upload(params, function (err, data) {
+      if (err) {
+        console.log('There was an error uploading your file: ', err);
+        return false;
+      }
+      console.log('Successfully uploaded file.', data);
+      this.url = data.Location
+      return true;
+    });
+//for upload progress
+    /*bucket.upload(params).on('httpUploadProgress', function (evt) {
+              console.log(evt.loaded + ' of ' + evt.total + ' Bytes');
+          }).send(function (err, data) {
+              if (err) {
+                  console.log('There was an error uploading your file: ', err);
+                  return false;
+              }
+              console.log('Successfully uploaded file.', data);
+              return true;
+          });*/
   }
 
   fileChange(event) {

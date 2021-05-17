@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +12,7 @@ export class HeaderComponent implements OnInit {
     // private authService: SocialAuthService
   ) {
    }
-
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.array = [
       {name: 'a'}
     ];
@@ -24,6 +23,8 @@ export class HeaderComponent implements OnInit {
       console.log(element);
     });
   }
+
+
 
   // signInWithGoogle(): void {
   //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(

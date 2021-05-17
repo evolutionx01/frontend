@@ -34,6 +34,10 @@ const routes: Routes = [
       {
         path: 'universalconcept',
         loadChildren: () => import('./universal-concept/universal-concept.module').then(m => m.UniversalConceptModule)
+      },
+      {
+        path: 'broadcast',
+        loadChildren: () => import('./broad-cast/broad-cast.module').then(m => m.BroadCastModule)
       }
     ]
   },

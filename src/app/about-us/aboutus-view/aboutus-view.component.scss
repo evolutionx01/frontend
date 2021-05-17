@@ -4,14 +4,17 @@
 }
 .page_banner {
     background-image: url("../../../assets/about.png");
-    padding-top: 6rem;
-    padding-bottom: 12rem;
+    padding-top: 4rem;
+    padding-bottom: 8rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     h2 {
-        color: white;
-        text-transform: uppercase;
+      padding-top: 1rem;
+      color: #1e4356;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size:1.65rem;
     }
 }
 
@@ -50,12 +53,10 @@
     .aboutus {
         .content {
             color: #333334;
-            font-size: 1rem;
             padding-bottom: 1rem;
         }
         .list {
             color: #333334;
-            font-size: 1rem;
             padding-left: 1rem;
             padding-bottom: 1rem;
         }
@@ -65,7 +66,7 @@
 .sec-title {
     position: relative;
 
-    h4 {
+    h3 {
         padding-bottom: 1rem;
         color: #1e1666;
 
@@ -87,7 +88,6 @@
     padding: 1rem 0;
     p {
         color: #6a7c92;
-        font-size: 1rem;
     }
 }
 
