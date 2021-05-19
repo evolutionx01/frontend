@@ -16,6 +16,11 @@
   src: url('assets/fonts/Nunito/Nunito-SemiBold.ttf');
 }
 
+@font-face {
+  font-family: 'Montserrat-Black';
+  src: url('assets/fonts/Nunito/Nunito-Black.ttf');
+}
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -70,10 +75,12 @@ body {
 }
 
 table thead th {
-    font-size: 13px;
+    font-size: 14px;
+    padding: 1.25rem !important;
 }
 table tbody td {
-    font-size: 13px;
+    font-size: 14px;
+  padding: 1.25rem!important;
   font-family: 'Montserrat-Bold';
     .form-control {
         height: calc(1em + 0.75rem + 2px);
