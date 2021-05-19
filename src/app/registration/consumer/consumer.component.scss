@@ -9,7 +9,7 @@
     padding-top: 1rem;
     color: #1e4356;
     text-transform: uppercase;
-    font-weight: bold;
+    font-family: 'Montserrat-Bold';
     font-size:1.65rem;
   }
 }
@@ -23,7 +23,7 @@
 
 .form-group {
     label {
-        font-weight: bold;
+        font-family: 'Montserrat-SemiBold';
         color: #212529;
         font-size: 13px;
     }
@@ -47,12 +47,12 @@
 
 .btn-custom {
     position: relative;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 22px;
     color: #ffffff;
     padding: 15px 45px;
     background: #3498db;
-    font-weight: 400;
+  font-family: 'Montserrat-Bold';
     border: none;
     transition: all 300ms ease;
     border: 1px solid #3498db !important;

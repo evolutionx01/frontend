@@ -9,7 +9,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { YouTubePlayerModule } from '@angular/youtube-player';
 import { AboutUsModule } from './about-us/about-us.module';
 import { ContentComponent } from './shared/content/content.component';
 import { LightboxModule } from 'ngx-lightbox';
@@ -29,7 +28,6 @@ import { SideNavComponent } from './shared/side-nav/side-nav.component';
     C19checkstepsModule,
     ReactiveFormsModule,
     NgbModule,
-    YouTubePlayerModule,
     AboutUsModule,
     LightboxModule,
     HttpClientModule,

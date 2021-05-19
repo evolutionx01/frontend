@@ -9,7 +9,7 @@
     padding-top: 1rem;
     color: #1e4356;
     text-transform: uppercase;
-    font-weight: bold;
+    font-family: 'Montserrat-Bold';
     font-size:1.65rem;
   }
 }
@@ -77,12 +77,13 @@
                 font-size: 20px;
                 line-height: 1.2em;
                 color: #333333;
-                font-weight: 700;
+              font-family: 'Montserrat-Bold';
                 margin-bottom: 5px;
                 a {
                     text-decoration: none;
                     font-size: 1rem;
                     color: #d55342;
+                  font-family: 'Montserrat-Bold';
                 }
             }
             .designation {
@@ -90,7 +91,7 @@
                 font-size: 15px;
                 line-height: 25px;
                 color: #777777;
-                font-weight: 400;
+              font-family: 'Montserrat-SemiBold';
                 letter-spacing: 1px;
                 margin-bottom: 5px;
                 text-transform: capitalize;
@@ -107,7 +108,7 @@
                 border-radius: 50%;
                 font-size: 18px;
                 color: #555555;
-                font-weight: 400;
+              font-family: 'Montserrat-SemiBold';
                 -webkit-transition: all 300ms ease;
                 -moz-transition: all 300ms ease;
                 -ms-transition: all 300ms ease;

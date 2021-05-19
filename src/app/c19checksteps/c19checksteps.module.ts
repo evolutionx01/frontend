@@ -6,7 +6,6 @@ import { GetStratedComponent } from './get-strated/get-strated.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { YouTubePlayerModule } from '@angular/youtube-player';
 
 
 @NgModule({
@@ -15,8 +14,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     CommonModule,
     C19checkstepsRoutingModule,
     ReactiveFormsModule,
-    NgbModule,
-    YouTubePlayerModule
+    NgbModule
   ]
 })
 export class C19checkstepsModule { }
