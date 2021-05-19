@@ -155,9 +155,9 @@
                         </div>
                     </div>
                     <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
-                    <!--<div class="form-group">-->
-                        <!--<img [src]="url" class="img-thumbnail" alt="upload you image" />-->
-                    <!--</div>-->
+                    <div class="form-group">
+                        <img *ngIf="fileUploadData?.Location" [src]="fileUploadData?.Location" class="img-thumbnail" alt="upload you image" />
+                    </div>
 
                 </div>
             </div>

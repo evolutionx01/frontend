@@ -42,7 +42,7 @@ export class MembershipComponent implements OnInit {
   time: NgbTimeStruct;
   registerForm: FormGroup;
   selectedFiles: FileList;
-  url: any = 'https://akuc-file.s3.ap-south-1.amazonaws.com/Capture.PNG';
+  fileUploadData: any;
   public weekdays = [
     {text: 'Sunday', value: 'sunday'},
     {text: 'Monday', value: 'monday'},
@@ -507,7 +507,7 @@ export class MembershipComponent implements OnInit {
 
     this.registerForm.patchValue({
       birth_date: new Date(this.f.birth_date.value).getTime(),
-      file: this.url
+      file: this.fileUploadData ? this.fileUploadData.Location : ''
     });
 
     this.memService.addmember(this.registerForm.value).subscribe(
@@ -533,72 +533,42 @@ export class MembershipComponent implements OnInit {
     this.selectedFiles = event.target.files;
   }
 
-  async upload() {
+  upload() {
+    this.spinner.show();
     const file = this.selectedFiles.item(0);
-    this.uploadFile(file)
+    this.memService.uploadFile(file).then( result => {
+      console.log('Upload finished', result);
+      this.spinner.hide();
+      this.fileUploadData = result;
+    })
+      .catch(error => {
+        this.spinner.hide();
+        console.log('Something went wrong');
+      });
   }
 
-
-  async uploadFile(file) {
-    const contentType = file.type;
-    const bucket = new S3(
-      {
-        accessKeyId: 'AKIAUPEPY7MG34S2OS5X',
-        secretAccessKey: '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',
-        region: 'ap-south-1'
-      }
-    );
-    const params = {
-      Bucket: 'akuc-file',
-      Key: 'images/'+file.name,
-      Body: file,
-      ACL: 'public-read',
-      ContentType: contentType
-    };
-    bucket.upload(params, function (err, data) {
-      if (err) {
-        console.log('There was an error uploading your file: ', err);
-        return false;
-      }
-      console.log('Successfully uploaded file.', data);
-      this.url = data.Location
-      return true;
-    });
-//for upload progress
-    /*bucket.upload(params).on('httpUploadProgress', function (evt) {
-              console.log(evt.loaded + ' of ' + evt.total + ' Bytes');
-          }).send(function (err, data) {
-              if (err) {
-                  console.log('There was an error uploading your file: ', err);
-                  return false;
-              }
-              console.log('Successfully uploaded file.', data);
-              return true;
-          });*/
-  }
-
-  fileChange(event) {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-      // tslint:disable-next-line: no-shadowed-variable
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        let base64 =  reader.result.toString();
-
-        base64 = base64.split(';')[1].split(',')[1];
-
-        this.registerForm.patchValue({
-          file: base64
-       });
-
-
-        console.log(event.target.result);
-        this.url = event.target.result;
-      };
-    }
-  }
+  // fileChange(event) {
+  //   if (event.target.files && event.target.files[0]) {
+  //     const reader = new FileReader();
+  //
+  //     reader.readAsDataURL(event.target.files[0]); // read file as data url
+  //
+  //     // tslint:disable-next-line: no-shadowed-variable
+  //     reader.onload = (event) => { // called once readAsDataURL is completed
+  //       let base64 =  reader.result.toString();
+  //
+  //       base64 = base64.split(';')[1].split(',')[1];
+  //
+  //       this.registerForm.patchValue({
+  //         file: base64
+  //      });
+  //
+  //
+  //       console.log(event.target.result);
+  //       this.url = event.target.result;
+  //     };
+  //   }
+  // }
 
 
   public buildRegisterForm(){

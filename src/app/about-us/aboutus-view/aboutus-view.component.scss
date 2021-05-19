@@ -36,16 +36,19 @@
     }
 
     .card {
-        border: none;
         transition: all 300ms ease;
+        box-shadow: 0 6px 13px rgba(214, 214, 214, 0.75);
         &:hover {
             box-shadow: 0 6px 13px rgba(214, 214, 214, 0.75);
         }
+      .card-body{
+        min-height: 340px;
+      }
     }
 }
 
 .details {
-    padding: 5rem 0;
+    padding: 2rem 0;
     background-image: url(https://m7n5e4p3.stackpathcdn.com/wp-content/uploads/2019/06/seo-curve-banner.png);
     background-position: center left;
     background-repeat: no-repeat;
@@ -87,7 +90,7 @@
 .sec-desc {
     padding: 1rem 0;
     p {
-        color: #6a7c92;
+        color: #262626;
     }
 }
 

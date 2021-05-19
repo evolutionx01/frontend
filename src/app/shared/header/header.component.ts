@@ -6,13 +6,14 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  isCollapsed: boolean;
   private array: [{}];
   constructor(
     // private authService: SocialAuthService
   ) {
    }
    ngOnInit(): void {
+    this.isCollapsed = true;
     this.array = [
       {name: 'a'}
     ];
